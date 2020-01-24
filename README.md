@@ -1,21 +1,22 @@
 # ironhack-first-project
 # GET YOUR COFFEE
 
+
 ## Description
 
 GET YOUR COFFEE is designed for the true coffee lover who will not accept sub-standard quality like McBrownWater or Starbrew Diluted Stuff. Lemonade and alcohol, or something like tea, are out of the question. The true coffee lover only wants the best: top-quality five-star golden guaranteed high standard coffee!
 
-GYC challenges the player to carefully watch the line-up of beverages and immediately press the space bar as soon as the Best Coffee cup moves under the coffee machine. If done correctly, the player earns a cup of coffee. If the player misses the coffee machine, the coffee cup moves off the screen and the score is reduced by one. 
+GYC challenges the player to carefully watch the line-up of beverages and immediately press the space bar as soon as the Best Coffee cup moves under the coffee machine. If done correctly, the player earns a cup of coffee. If the player misses the coffee machine, the coffee cup moves off the screen and the player's score is reduced by one. 
 
 If the player gets down to a count of zero coffee cups, the game is over.
 
-There is a maximum time of one minute, and after that the game is over.
+The player can play for a maximum time of one minute, and after that the game is over.
 
 
 ## MVP
 The line-up of beverages are moving from right to left at a certain speed. The type of beverage is random.
 
-There is a counter to keep track of the number of coffee cups scored. There is an option to play the game again.
+There is a counter to keep track of the number of coffee cups scored. There is also a counter that keeps track of the time. On the Game Over screen there is an option to play the game again.
 
 
 ## Backlog
@@ -60,7 +61,7 @@ Game.prototype.startLoop = function(){
   this.updateGameStatus()  
 }
 
-Game.prototype.checkScreenCollisions = function(){  
+Game.prototype.checkScreenCollision = function(){  
 }
 
 Game.prototype.updateScore = function(){  
@@ -108,6 +109,7 @@ Obstacle.prototype.moveForward = function(){
 - startGame()
   - create new Game()
   - game.start()
+  - addEventListener(checkCoffeeMade)
   
   
 - gameOver()
@@ -116,9 +118,9 @@ Obstacle.prototype.moveForward = function(){
 
 ### Tasks
 
-    Main - buildDom
+    Main - buildDOM
     Main - buildSplashScreen
-    Main - addEventListener
+    Main - addEventListener  (start)
     Main - buildGameScreen
     Main - buildGameOverScreen
     Game - buildCanvas
@@ -126,10 +128,12 @@ Obstacle.prototype.moveForward = function(){
     Game - updateCanvas
     Game - drawCanvas
     Game - setGameOver
-    Game - collision
-    Game - addEventListener
-    obstacle - create random obstacle
-    obstacle - moveForward
+    Game - checkScreenCollision
+    Game - createObstacle
+    Game - obstacle.moveForward
+    Game - addEventListener  (press spacekey)
+    Game - addEventListener  (play again)
+    
     
 
 ### [Trello link: click here](https://trello.com/b/ihmt0jKI/ironhack-first-project-get-your-coffee)
