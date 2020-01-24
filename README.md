@@ -41,11 +41,11 @@ buildGameOverScreen(){
 #### game.js
 
 Game(){  
-  this.canvas;  
-  this.ctx;  
-  this.time;  
-  this.score;  
-  this.obstacles;  
+  this.canvas;  
+  this.ctx;  
+  this.time;  
+  this.score;  
+  this.obstacles;  
 }
 
 Game.prototype.start(){  
