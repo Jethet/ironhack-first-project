@@ -17,9 +17,9 @@ The line-up of beverages are moving from right to left at a certain speed. The t
 There is a counter to keep track of the number of coffee cups scored. There is an option to play the game again.
 
 (Optional: 
-  speed-o-meter
-  save player's results in an overview
-  increase speed to make game more challenging)
+* speed-o-meter
+* save player's results in an overview
+* increase speed to make game more challenging)
 
 
 
@@ -27,15 +27,13 @@ There is a counter to keep track of the number of coffee cups scored. There is a
 #### main.js
 
 
-buildSplashScreen(){
-
-
+buildSplashScreen(){  
 }
 
-buildGameScreen(){
+buildGameScreen(){  
 }
 
-buildGameOverScreen(){
+buildGameOverScreen(){  
 }
 
 
