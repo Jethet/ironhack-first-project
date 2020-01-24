@@ -11,7 +11,7 @@ If the player gets down to a count of zero coffee cups, the game is over.
 
 There is a maximum time of one minute, and after that the game is over.
 
-# CANVAS
+## Canvas
 The line-up of beverages are moving from right to left at a certain speed. The type of beverage is random.
 
 There is a counter to keep track of the number of coffee cups scored. There is an option to play the game again.
@@ -22,7 +22,7 @@ There is a counter to keep track of the number of coffee cups scored. There is a
 
 
 
-# Data structure
+## Data structure
 #### main.js
 
 
