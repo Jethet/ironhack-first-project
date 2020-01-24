@@ -16,10 +16,10 @@ The line-up of beverages are moving from right to left at a certain speed. The t
 
 There is a counter to keep track of the number of coffee cups scored. There is an option to play the game again.
 
-(Optional: 
+Optional: 
 * speed-o-meter
 * save player's results in an overview
-* increase speed to make game more challenging)
+* increase speed to make game more challenging
 
 
 
@@ -40,45 +40,45 @@ buildGameOverScreen(){
 
 #### game.js
 
-Game(){
-  this.canvas;
-  this.ctx;
-  this.time;
-  this.score;
-  this.obstacles;
+Game(){  
+  this.canvas;  
+  this.ctx;  
+  this.time;  
+  this.score;  
+  this.obstacles;  
 }
 
-Game.prototype.start(){
+Game.prototype.start(){  
 }
 
-Game.prototype.startLoop(){
-  this.clearCanvas()
-  this.updateCanvas()
-  this.updateGameStatus()
+Game.prototype.startLoop(){  
+  this.clearCanvas()  
+  this.updateCanvas()  
+  this.updateGameStatus()  
 }
 
-Game.prototype.drawCanvas = function(){ 
+Game.prototype.drawCanvas = function(){  
 }
 
-Game.prototype.setGameOver = function(){
+Game.prototype.setGameOver = function(){  
 }
 
 
 
 #### obstacles.js
 
-Obstacle(){
-  this.size;
-  this.direction;
-  this.speed;
-  this.x;
-  this.y;
+Obstacle(){  
+  this.size;  
+  this.direction;  
+  this.speed;  
+  this.x;  
+  this.y;  
   
 
-Obstacle.prototype.draw{
+Obstacle.prototype.draw{  
 }
 
-Obstacle.prototype.moveForward(){
+Obstacle.prototype.moveForward(){  
 }
 
 
