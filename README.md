@@ -6,7 +6,7 @@
 
 GET YOUR COFFEE is designed for the true coffee lover who will not accept sub-standard quality like McBrownWater or Starbrew Diluted Stuff. Lemonade and alcohol, or something like tea, are out of the question. The true coffee lover only wants the best: top-quality five-star golden guaranteed high standard coffee!
 
-GYC challenges the player to carefully watch the line-up of beverages and immediately press the space bar as soon as the Best Coffee cup moves under the coffee machine. If done correctly, the player earns a cup of coffee. If the player misses the coffee machine, the coffee cup moves off the screen and the player's score is reduced by one. 
+GYC challenges the player to carefully watch the line-up of beverages, and immediately press the space bar as soon as the Best Coffee cup moves under the coffee machine. If done correctly, the player earns a cup of coffee. If the player forgets to click when the Best Coffee cup passes under the coffee machine, the coffee cup moves off the screen and the player's score is reduced by one. 
 
 If the player gets down to a count of zero coffee cups, the game is over.
 
@@ -49,7 +49,7 @@ Game(){
   this.ctx;  
   this.time;  
   this.score;  
-  this.obstacles;  
+  this.beverage;  
 }
 
 Game.prototype.start = function(){  
@@ -70,7 +70,7 @@ Game.prototype.updateScore = function(){
 Game.prototype.setGameOver = function(){  
 }
 
-Game.prototype.checkCoffeeMade = function(){  
+Game.prototype.checkCoffeeClicked = function(){  
 }
 
 Game.prototype.checkTime = function(){  
@@ -82,7 +82,7 @@ Game.prototype.printTime = function(){
 
 #### obstacles.js
 
-Obstacle(){  
+Beverage(){  
   this.size;  
   this.direction;  
   this.speed;  
@@ -91,10 +91,10 @@ Obstacle(){
   }
   
 
-Obstacle.prototype.draw = function(){  
+Beverage.prototype.draw = function(){  
 }
 
-Obstacle.prototype.moveForward = function(){  
+Beverage.prototype.moveForward = function(){  
 }
 
 
@@ -109,7 +109,7 @@ Obstacle.prototype.moveForward = function(){
 - startGame()
   - create new Game()
   - game.start()
-  - addEventListener(checkCoffeeMade)
+  - addEventListener(checkCoffeeClicked)
   
   
 - gameOver()
@@ -129,8 +129,8 @@ Obstacle.prototype.moveForward = function(){
     Game - drawCanvas
     Game - setGameOver
     Game - checkScreenCollision
-    Game - createObstacle
-    Game - obstacle.moveForward
+    Game - createBeverage
+    Game - beverage.moveForward
     Game - addEventListener  (press spacekey)
     Game - addEventListener  (play again)
     
