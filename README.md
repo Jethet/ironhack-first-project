@@ -80,7 +80,7 @@ Game.prototype.printTime = function(){
 }
 
 
-#### obstacles.js
+#### beverage.js
 
 Beverage(){  
   this.size;  
