@@ -1,7 +1,7 @@
 # ironhack-first-project
 # GET YOUR COFFEE
 
-## Description
+# Description
 
 GET YOUR COFFEE is designed for the true coffee lover who will not accept sub-standard quality like McBrownWater or Starbrew Diluted Stuff. Lemonade and alcohol, or something like tea, are out of the question. The true coffee lover only wants the best: top-quality five-star golden standard coffee!
 
@@ -11,7 +11,7 @@ If the player gets down to a count of zero coffee cups, the game is over.
 
 There is a maximum time of one minute, and after that the game is over.
 
-CANVAS
+# CANVAS
 The line-up of beverages are moving from right to left at a certain speed. The type of beverage is random.
 
 There is a counter to keep track of the number of coffee cups scored. There is an option to play the game again.
@@ -22,7 +22,7 @@ There is a counter to keep track of the number of coffee cups scored. There is a
 
 
 
-Data structure
+# Data structure
 main.js
 
 
@@ -35,34 +35,25 @@ buildGameScreen(){
 buildGameOverScreen(){
 }
 
+
+
 game.js
 
 Game(){
   this.canvas;
+  this.ctx;
+  this.time;
+  this.score;
+  this.obstacles;
+}
+
+Game.prototype.start(){
 }
 
 Game.prototype.startLoop(){
-}
-
-Game.prototype.checkCollisions{
-}
-
-Game.prototype.CheckIfFullLine{
-}
-
-Game.prototype.updateLevel{
-}
-
-Game.prototype.checkOverFlow = function(){
-}
-
-Game.prototype.displayNextSquare{
-}
-
-Game.prototype.clearCanvas = function(){
-}
-
-Game.prototype.updateCanvas = function(){
+  this.clearCanvas()
+  this.updateCanvas()
+  this.updateGameStatus()
 }
 
 Game.prototype.drawCanvas = function(){ 
@@ -71,51 +62,34 @@ Game.prototype.drawCanvas = function(){
 Game.prototype.setGameOver = function(){
 }
 
-movingSquare.js
 
-MovingSquare(){
-  this.camvas;
-  this.x;
-  this.y;
+
+obstacles.js
+
+Obstacle(){
   this.size;
   this.direction;
-  this.speed; 
-  this.color;
-}
-
-MovingSquare.prototype.draw{
-}
-
-Character.prototype.setDirection(){
-}
-
-Character.prototype.goDown(){
-}
-
-Character.prototype.rush(){
-}
-
-staticSquare.js
-
-StaticSquare(){
-  this.camvas;
+  this.speed;
   this.x;
   this.y;
-  this.size;
-  this.color;
+  
+
+Obstacle.prototype.draw{
 }
 
-StaticSquare.prototype.draw{
+Obstacle.prototype.moveForward(){
 }
 
-States y States Transitions
+
+
+States and States Transitions
 
 - splashScreen()
   - buildSplash()
   - addEventListener(startGame)
   
   
-- starGame()
+- startGame()
   - create new Game()
   - game.start()
   
@@ -138,12 +112,7 @@ Task
     Game - setGameOver
     Game - collision
     Game - addEventListener
-    movingSquare - create
-    movingSquare - goDown
-    staticSquare - store
-    staticSquare - remove if full line
-    Game - checkOverFlow
-    movingSquare - setDirection
-    movingSquare - Rush
-    movingSquare - SelectRandomSize
+    obstacle - create random obstacle
+    obstacle - moveForward
+    
 
