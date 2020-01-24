@@ -48,10 +48,10 @@ Game(){
   this.obstacles;  
 }
 
-Game.prototype.start(){  
+Game.prototype.start = function(){  
 }
 
-Game.prototype.startLoop(){  
+Game.prototype.startLoop = function(){  
   this.clearCanvas()  
   this.updateCanvas()  
   this.updateGameStatus()  
@@ -76,10 +76,10 @@ Obstacle(){
   }
   
 
-Obstacle.prototype.draw{  
+Obstacle.prototype.draw = function(){  
 }
 
-Obstacle.prototype.moveForward(){  
+Obstacle.prototype.moveForward = function(){  
 }
 
 
