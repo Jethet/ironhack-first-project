@@ -52,9 +52,9 @@ Game.prototype.start(){
 }
 
 Game.prototype.startLoop(){  
-  this.clearCanvas()  
-  this.updateCanvas()  
-  this.updateGameStatus()  
+  this.clearCanvas()  
+  this.updateCanvas()  
+  this.updateGameStatus()  
 }
 
 Game.prototype.drawCanvas = function(){  
@@ -68,11 +68,12 @@ Game.prototype.setGameOver = function(){
 #### obstacles.js
 
 Obstacle(){  
-  this.size;  
-  this.direction;  
-  this.speed;  
-  this.x;  
-  this.y;  
+  this.size;  
+  this.direction;  
+  this.speed;  
+  this.x;  
+  this.y;
+}
   
 
 Obstacle.prototype.draw{  
