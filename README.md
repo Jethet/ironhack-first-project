@@ -72,8 +72,8 @@ Obstacle(){
   this.direction;  
   this.speed;  
   this.x;  
-  this.y;
-}
+  this.y;  
+  }
   
 
 Obstacle.prototype.draw{  
