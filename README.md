@@ -3,9 +3,9 @@
 
 ## Description
 
-GET YOUR COFFEE is designed for the true coffee lover who will not accept sub-standard quality like McBrownWater or Starbrew Diluted Stuff. Lemonade and alcohol, or something like tea, are out of the question. The true coffee lover only wants the best: top-quality five-star golden standard coffee!
+GET YOUR COFFEE is designed for the true coffee lover who will not accept sub-standard quality like McBrownWater or Starbrew Diluted Stuff. Lemonade and alcohol, or something like tea, are out of the question. The true coffee lover only wants the best: top-quality five-star golden guaranteed high standard coffee!
 
-GYC challenges the player to carefully watch the line-up of beverages and immediately click on the Best Coffee as soon as the this coffee cup enters the view. If clicked correctly, the player earns a cup of coffee. If wrong, the number of coffee cups earned is reduced by one. 
+GYC challenges the player to carefully watch the line-up of beverages and immediately click on the Best Coffee as soon as this coffee cup enters the view. If clicked correctly, the player earns a cup of coffee. If wrong, the number of coffee cups earned is reduced by one. 
 
 If the player gets down to a count of zero coffee cups, the game is over.
 
@@ -118,4 +118,4 @@ Obstacle.prototype.moveForward(){
     obstacle - moveForward
     
 
-### [Trello link:](https://trello.com/b/ihmt0jKI/ironhack-first-project-get-your-coffee)
+### [Trello link: click here](https://trello.com/b/ihmt0jKI/ironhack-first-project-get-your-coffee)
