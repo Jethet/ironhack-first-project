@@ -1,3 +1,5 @@
+'use strict'
+
 function Beverage(){
     this.size;
     this.direction;

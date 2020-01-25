@@ -1,9 +1,14 @@
+'use strict'
+
 function Game(){
     this.canvas = null;
     this.ctx = null;
+
     this.time = 0;
     this.score = 0;
     this.beverage = [];
+
+    this.gameScreen = null;
     this.gameOver = false;
   };
   
