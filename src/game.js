@@ -6,7 +6,7 @@ function Game(){
 
     this.time = 0;
     this.score = 0;
-    this.beverage = [];
+    this.beverage = null;
 
     this.gameScreen = null;
     this.gameOver = false;
@@ -26,19 +26,24 @@ function Game(){
     this.canvas.setAttribute("width", containerWidth);
     this.canvas.setAttribute("height", containerHeight);
 
+    this.handleKeySpace = function(event) {
+      if (event.key === "Space") {
+        console.log("SPACE");
+        this.updateScore();
+      }
+    }; 
+    
+    window.addEventListener("keyspace", this.handleKeySpace.bind(this));
+
     this.startLoop();
   };
 
   
   Game.prototype.startLoop = function(){
-   
-    this.clearCanvas(){
-      this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
-       }
-  
+    this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
 
-      this.updateCanvas() {
-        
+    this.updateCanvas() {
+        this.beverage.draw();
       };
 
 
