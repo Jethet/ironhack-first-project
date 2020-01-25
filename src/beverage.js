@@ -18,9 +18,7 @@ function Beverage(){
     this.ctx.fillStyle = beverage;
   };
 
-
-
   
   Beverage.prototype.moveForward = function(){
-    this.x = this.x - this.speed;
+    this.x = this.x - this.speed;   // images move from right to left
   };
