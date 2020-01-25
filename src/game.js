@@ -25,15 +25,26 @@ function Game(){
 
     this.canvas.setAttribute("width", containerWidth);
     this.canvas.setAttribute("height", containerHeight);
+
+    this.startLoop();
   };
 
   
   Game.prototype.startLoop = function(){
-    this.clearCanvas()
-    this.updateCanvas()
-    this.updateGameStatus()
-  };
+   
+    this.clearCanvas(){
+      this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
+       }
+  
 
+      this.updateCanvas() {
+        
+      };
+
+
+      this.updateGameStatus(){
+    };
+};
   
   Game.prototype.checkScreenCollision = function(){
   };
@@ -57,4 +68,5 @@ function Game(){
   
   Game.prototype.printTime = function(){
   };
+  
   
