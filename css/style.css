@@ -82,3 +82,20 @@ html {
     flex: 1;
   }
   
+  #start-button {
+    background-color:#8B4513; /* CAN I USE A COFFEE CUP PICTURE SOMEHOW?? */
+    border: 2px solid black;
+    border-radius: 50%;
+    color: white;
+    display: flex;
+    font-size: 20px;
+    justify-content: left;
+    margin-left: 40px;
+    padding: 32px 16px;
+    text-decoration: none;    
+  }
+
+  #start-button:hover {
+    background-color: #D2691E;
+    color: white;
+  }

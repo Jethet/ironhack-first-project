@@ -10,7 +10,7 @@ function Beverage(){
     this.isCoffee = false;
   };
 
-  var beverageImage = [];
+  var beverageImage = ['Image1', 'Image2', 'Image3', 'Image4'];
    
   Beverage.prototype.draw = function(){
     var randomBeverage =  Math.floor(Math.random() * beverageImage.length);

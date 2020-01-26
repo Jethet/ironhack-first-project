@@ -13,6 +13,7 @@ function Game(){
   };
   
   Game.prototype.start = function(){
+    // Get the canvas element, create ctx, save canvas and ctx in the game object
     this.canvasContainer = document.querySelector(".canvas-container");
     this.canvas = this.canvasContainer.querySelector("canvas");
     this.ctx = this.canvas.getContext("2d");
@@ -41,14 +42,19 @@ function Game(){
   
   Game.prototype.startLoop = function(){
     this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
+    var loop = function(){
+      console.log("Game looping");
 
-    this.updateCanvas() {
-        this.beverage.draw();
-      };
+      //this.beverage.draw();
 
+      window.requestAnimationFrame(loop);
+    }.bind(this);
 
-      this.updateGameStatus(){
-    };
+    window.requestAnimationFrame(loop);
+
+    //this.updateCanvas()
+    //this.beverage.draw();
+
 };
   
   Game.prototype.checkScreenCollision = function(){
@@ -56,6 +62,7 @@ function Game(){
 
   
   Game.prototype.updateScore = function(){
+    this.updateGameStatus();
   };
 
   

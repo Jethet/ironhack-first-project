@@ -18,8 +18,9 @@ function main(){
     function buildSplashScreen(){
         splashScreen = buildDom(`
         <main>
-        <h1>Get Your Coffee</h1>
-        <button>Get your coffee!!!</button>
+        <h1>Get Your Coffee!</h1>
+        <h2>A game for the True Coffee Lover</h2>
+        <button id="start-button">Get your coffee!!!</button>
         </main>`);
 
         document.body.appendChild(splashScreen);
@@ -83,8 +84,20 @@ function main(){
             gameOverScreen.remove();
         }
     }
-    buildSplashScreen()
 
+    function startGame(){
+        removeSplashScreen();
+
+        var game = new Game();
+        game.gameScreen = buildGameScreen();
+
+        game.start();
+    }
+
+    // Initialize the start screen:
+    buildSplashScreen();
 };
 
-main();
+window.addEventListener('load', main);
+
+//main();
