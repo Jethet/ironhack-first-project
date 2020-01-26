@@ -22,6 +22,12 @@ function Beverage(canvas, y, speed){
     this.x = this.x - this.speed;   // images move from right to left
   };
 
+  Beverage.prototype.checkIfCoffee = function(){
+    if (isCoffee === true){
+      return true;
+    }
+  };
+
   Beverage.prototype.isInsideScreen = function(){
     return this.x + this.size / 2 > 0;
     //return this.x + this.size 2 > 0;  THIS IS IN THE CODEALONG

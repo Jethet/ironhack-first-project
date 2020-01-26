@@ -7,6 +7,7 @@ function Game(){
     this.time = 0;
     this.score = 0;
     this.beverage = [];
+    this.bialetti = null;
 
     this.gameScreen = null;
     this.gameOver = false;
@@ -26,10 +27,11 @@ function Game(){
     this.canvas.setAttribute("width", this.containerWidth);
     this.canvas.setAttribute("height", this.containerHeight);
 
+    // this.bialetti = image, coordinates
+
     this.handleKeySpace = function(event) {
       if (event.key === "Space") {
         console.log("SPACE");
-        this.updateScore();
       }
     }; 
 
@@ -40,32 +42,46 @@ function Game(){
 
   
   Game.prototype.startLoop = function(){
-   
     var loop = function(){
       console.log("Game looping");
 
+    // 1. UPDATE THE STATE (game, beverages)
+    // a. Create beverages randomly
+      if (Math.random() > 0.98) {
+          var newBeverage = new Beverage(this.canvas, 0, 5);
+          this.beverage.push(newBeverage);
+        };
+
+    // b. Check if the beverages are off screen (check all of the beverages)
+      this.checkScreenCollision();
+
+    // c. Move beverages
+
+    // d. Check if coffee under bialetti and clicked
+      this.checkCoffeeClicked();
+      
+
+    // CLEAR CANVAS
+      this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
+
+    // UDATE CANVAS
+    //  a. draw beverages
+      this.beverage.forEach(function(beverage){
+        beverage.draw();
+      });
+
+    // Terminate loop if game is over
       if(!this.gameOver){
         window.requestAnimationFrame(loop);
         }
-      }.bind(this);
+      }.bind(this);  // The 'window' object invokes the loop, that is why 'this' is used
+                     // to bind the function: to point to 'game' object
+                     // Syntax: var loop = function(){}.bind(this);
 
       // this.time++;
       // // this.time.element.innerHTML = this.time;
       // this.score++;
       // this.scoreElement.innerHTML = this.score;
-
-      // if (Math.random() > 0.98) {
-      //   var newBeverage = new Beverage(this.canvas, 0, 5);
-      //   this.beverage.push(newBeverage);
-      // };
-
-      // this.checkScreenCollision();
-
-      // this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
-    
-      // this.beverage.forEach(function(beverage){
-      //   beverage.draw();
-      // });
 
       window.requestAnimationFrame(loop);
   };
@@ -80,17 +96,20 @@ function Game(){
       }
     }, this);
   };
-  
+
 
   Game.prototype.checkCoffeeClicked = function(){
     if (this.beverage.isCoffee === true){
-      this.score++;
+      if (this.beverage.y === this.bialetti.y && this.handleKeySpace === true){
+        this.score++;
+      }
     }
   };
 
 
   Game.prototype.updateScore = function(){
-    this.updateGameStatus();
+    checkCoffeeClicked()
+
   };
 
   
