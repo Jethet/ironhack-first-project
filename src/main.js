@@ -18,16 +18,17 @@ function main(){
     function createSplashScreen(){
         splashScreen = buildDom(`
         <main>
-        <h1>Get Your Coffee!</h1>
-        <h2>A game for the True Coffee Lover</h2>
-        <button id="start-button">Get your coffee!!!</button>
+            <h1>Get Your Coffee!</h1>
+            <h2>A game for the True Coffee Lover</h2>
+            <button id="start-button">Get your coffee!!!</button>
         </main>`);
 
         document.body.appendChild(splashScreen);
         var startButton = splashScreen.querySelector('button');
-        startButton.addEventListener('click', startGame);
+        startButton.addEventListener('click', function(){
+            startGame()
+        });
         };
-    };
 
     
     function removeSplashScreen(){
@@ -59,7 +60,7 @@ function main(){
 
 
     function removeGameScreen(){
-        game.removeGameScreen();
+        game.gameScreen.remove();
     }
 
 
@@ -70,12 +71,14 @@ function main(){
             <p>You scored <span>${score}</span> cups of Best Coffee!! Would you like to play again?</p>
             <button>Restart</button>
         </main>
-        `); // this button needs an event listener
+        `); 
 
-        document.body.appendChild(gameOverScreen);
         var button = gameOverScreen.querySelector('button');
         button.addEventListener('click', startGame);
+        var span = gameOverScreen.querySelector('span');
+        span.innerText = score;
 
+        document.body.appendChild(gameOverScreen);
     };
 
     function removeGameOverScreen(){
@@ -93,17 +96,19 @@ function main(){
 
         game.start();
 
-        game.passGameOverCallback(gameOver);  // I do not understand this
+        game.passGameOverCallback(function(){
+            gameOver(game.score);
+        });  // I do not understand this
     }
 
     function gameOver(score){
         removeGameScreen();
-        createGameOverScreen();
+        createGameOverScreen(score);
     };
 
     // Initialize the start screen:
-    //createSplashScreen();
-//};
+    createSplashScreen();
+};
 
 window.addEventListener('load', main);
 

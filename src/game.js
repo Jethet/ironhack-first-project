@@ -16,7 +16,7 @@ function Game(){
   Game.prototype.start = function(){
     // Get the canvas element, create ctx, save canvas and ctx in the game object
     this.canvasContainer = document.querySelector(".canvas-container");
-    this.canvas = this.gameScreen.querySelector("canvas");
+    this.canvas = document.querySelector("canvas");
     this.ctx = this.canvas.getContext("2d");
 
     this.timeElement = this.gameScreen.querySelector(".time .value");
@@ -47,6 +47,9 @@ function Game(){
 
     // 1. UPDATE THE STATE (game, beverages)
     // a. Create beverages randomly
+      this.score++;
+      this.scoreElement.innerHTML = this.score;
+      
       if (Math.random() > 0.98) {
           var newBeverage = new Beverage(this.canvas, 0, 5);
           this.beverage.push(newBeverage);
@@ -56,10 +59,10 @@ function Game(){
       this.checkScreenCollision();
 
     // c. Move beverages
-      this.moveForward();
+     // this.moveForward();
 
     // d. Check if coffee under bialetti and clicked
-      this.checkCoffeeClicked();
+      //this.checkCoffeeClicked();
       
 
     // CLEAR CANVAS
@@ -75,6 +78,7 @@ function Game(){
       if(!this.gameOver){
         window.requestAnimationFrame(loop);
         }
+        this.updateScore();
       }.bind(this);  // The 'window' object invokes the loop, that is why 'this' is used
                      // to bind the function: to point to 'game' object
                      // Syntax: var loop = function(){}.bind(this);
@@ -101,13 +105,13 @@ function Game(){
       if (this.beverage.y === this.bialetti.y && this.handleKeySpace === true){
         this.score++;
       }
-    }
+    } return this.score;
   };
 
 
   Game.prototype.updateScore = function(){
-    checkCoffeeClicked();
-    return this.score;
+ //   checkCoffeeClicked();
+    this.scoreElement.innerHTML = this.score;
   };
 
   
@@ -127,7 +131,7 @@ function Game(){
   }
 
   Game.prototype.removeGameScreen = function(){
-
+    this.gameScreen.remove();
   };
   
   

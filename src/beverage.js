@@ -3,10 +3,11 @@
 function Beverage(canvas, y, speed){
     this.canvas = canvas;
     this.ctx = this.canvas.getContext("2d");
-    this.size = Math.floor(20 + Math.random() * (100-20 + 1));
+    this.size = 20;
+    // Math.floor(20 + Math.random() * (100-20 + 1));  this was intended to vary the size
   //  this.direction = 0;
-    this.speed = 5;
-    this.x = canvas.width + this.size;
+    this.speed = speed;
+    this.x = this.canvas.width + this.size;
     this.y = y;
     this.isCoffee = false;
   };
@@ -30,5 +31,5 @@ function Beverage(canvas, y, speed){
 
   Beverage.prototype.isInsideScreen = function(){
     return this.x + this.size / 2 > 0;
-    //return this.x + this.size 2 > 0;  THIS IS IN THE CODEALONG
+    //return this.x + this.size > 0;  THIS IS IN THE CODEALONG
   }
