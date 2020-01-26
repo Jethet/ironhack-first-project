@@ -41,11 +41,11 @@ function main(){
         <main class="game container">
         <header>
             <div class="time">
-            <span class="label">Time:</span>
+            <span class="label">Your time:</span>
             <span class="value"></span>
             </div>
             <div class="score">
-            <span class="label">Score:</span>
+            <span class="label">Your score:</span>
             <span class="value"></span>
             </div>
         </header>
@@ -93,6 +93,10 @@ function main(){
 
         game.start();
     }
+
+    function gameOver(){
+        
+    };
 
     // Initialize the start screen:
     buildSplashScreen();

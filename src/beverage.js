@@ -1,24 +1,27 @@
 'use strict'
 
-function Beverage(){
+function Beverage(canvas, y, speed){
     this.canvas = canvas;
+    this.ctx = this.canvas.getContext("2d");
     this.size = 50;
-    this.direction;
+  //  this.direction = 0;
     this.speed = 5;
     this.x = canvas.width + this.size;
-    this.y;
+    this.y = y;
     this.isCoffee = false;
   };
 
-  var beverageImage = ['Image1', 'Image2', 'Image3', 'Image4'];
    
   Beverage.prototype.draw = function(){
-    var randomBeverage =  Math.floor(Math.random() * beverageImage.length);
-    var beverage = beverageImage[randomBeverage];
-    this.ctx.fillStyle = beverage;
+    this.ctx.fillStyle = "blue";
+    this.ctx.fillRect(this.x, this.y, this.size, this.size);
   };
 
   
   Beverage.prototype.moveForward = function(){
     this.x = this.x - this.speed;   // images move from right to left
   };
+
+  Beverage.prototype.isInsideScreen = function(){
+    return this.x + this.size / 2 > 0;
+  }

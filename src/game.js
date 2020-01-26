@@ -6,7 +6,7 @@ function Game(){
 
     this.time = 0;
     this.score = 0;
-    this.beverage = null;
+    this.beverage = [];
 
     this.gameScreen = null;
     this.gameOver = false;
@@ -34,6 +34,7 @@ function Game(){
       }
     }; 
     
+
     window.addEventListener("keyspace", this.handleKeySpace.bind(this));
 
     this.startLoop();
@@ -45,19 +46,39 @@ function Game(){
     var loop = function(){
       console.log("Game looping");
 
-      //this.beverage.draw();
+      this.time++;
+      this.time.element.innerHTML = this.time;
 
+      this.score++;
+      this.scoreElement.innerHTML = this.score;
+
+
+      if (Math.random() > 0.98) {
+        var newBeverage = new Beverage(this.canvas, y = 0, 5);
+        this.beverage.push(newBeverage);
+      };
+
+      this.checkScreenCollision();
+
+      this.isInsideScreen(beverage);
+      
+      this.beverage.draw();
+
+
+
+      if(!this.gameOver){
       window.requestAnimationFrame(loop);
+    }
     }.bind(this);
 
     window.requestAnimationFrame(loop);
 
-    //this.updateCanvas()
-    //this.beverage.draw();
-
-};
+  };
   
   Game.prototype.checkScreenCollision = function(){
+      if (!isInsideScreen){
+        this.score--;
+      }
   };
 
   
@@ -67,18 +88,39 @@ function Game(){
 
   
   Game.prototype.setGameOver = function(){
+    if(this.score < 0){
+      return this.gameOver;
+    }
   };
 
   
   Game.prototype.checkCoffeeClicked = function(){
+    if (this.beverage.isCoffee === true){
+      this.score++;
+    }
   };
 
   
   Game.prototype.checkTime = function(){
+    this.time.minutes = minutes;
+    this.time.seconds = seconds;
   };
 
   
   Game.prototype.printTime = function(){
-  };
+      printMinutes();
+      printSeconds();
+  }
+  
+  function printMinutes(minutes) {
+      minDec.innerHTML = minutes[0];
+      minUni.innerHTML = minutes[1];
+  }
+  
+  function printSeconds(seconds) {
+      secDec.innerHTML = seconds[0];
+      secUni.innerHTML = seconds[1];
+  }
+  
   
   
