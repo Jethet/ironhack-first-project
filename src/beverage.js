@@ -14,7 +14,7 @@ function Beverage(canvas, y, speed){
    
   Beverage.prototype.draw = function(){
     this.ctx.fillStyle = "blue";
-    this.ctx.fillRect(this.x, this.y, this.size, this.speed);
+    this.ctx.fillRect(this.x, this.y, this.size, this.size);
   };
 
   
@@ -24,4 +24,5 @@ function Beverage(canvas, y, speed){
 
   Beverage.prototype.isInsideScreen = function(){
     return this.x + this.size / 2 > 0;
+    //return this.x + this.size 2 > 0;  THIS IS IN THE CODEALONG
   }

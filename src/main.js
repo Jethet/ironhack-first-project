@@ -25,9 +25,8 @@ function main(){
 
         document.body.appendChild(splashScreen);
         var startButton = splashScreen.querySelector('button');
-        startButton.addEventListener('click', function(){
-            startGame();
-        });
+        startButton.addEventListener('click', startGame);
+        };
     };
 
     
@@ -60,30 +59,30 @@ function main(){
 
 
     function removeGameScreen(){
-        game.gameScreen.remove();
+        game.removeGameScreen();
     }
 
 
-    function buildGameOverScreen(score){
-        gameOverScreen = buildDom(`
-        <main>
-            <h1>Game over</h1>
-            <p>You scored <span>${score}</span> cups of Best Coffee!! Would you like to play again?</p>
-            <button>Restart</button>
-        </main>
-        `); // this button needs an event listener
+    // function buildGameOverScreen(score){
+    //     gameOverScreen = buildDom(`
+    //     <main>
+    //         <h1>Game over</h1>
+    //         <p>You scored <span>${score}</span> cups of Best Coffee!! Would you like to play again?</p>
+    //         <button>Restart</button>
+    //     </main>
+    //     `); // this button needs an event listener
 
-        document.body.appendChild(gameOverScreen);
-        var button = gameOverScreen.querySelector('button');
-        button.addEventListener('click', startGame);
+    //     document.body.appendChild(gameOverScreen);
+    //     var button = gameOverScreen.querySelector('button');
+    //     button.addEventListener('click', startGame);
 
-    };
+    // };
 
-    function removeGameOverScreen(){
-        if (gameOverScreen !== undefined){
-            gameOverScreen.remove();
-        }
-    }
+    // function removeGameOverScreen(){
+    //     if (gameOverScreen !== undefined){
+    //         gameOverScreen.remove();
+    //     }
+    // }
 
     function startGame(){
         removeSplashScreen();
@@ -94,13 +93,13 @@ function main(){
         game.start();
     }
 
-    function gameOver(gameOver){
+    //function gameOver(gameOver){
         
-    };
+    //};
 
     // Initialize the start screen:
-    createSplashScreen();
-};
+    //createSplashScreen();
+//};
 
 window.addEventListener('load', main);
 

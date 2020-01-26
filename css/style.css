@@ -93,7 +93,8 @@ html {
     justify-content: left;
     margin-left: 40px;
     padding: 32px 16px;
-    text-decoration: none;    
+    text-decoration: none;
+    transition-duration: 0.4s;   
   }
 
   #start-button:hover {

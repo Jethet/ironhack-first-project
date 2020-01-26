@@ -15,17 +15,16 @@ function Game(){
   Game.prototype.start = function(){
     // Get the canvas element, create ctx, save canvas and ctx in the game object
     this.canvasContainer = document.querySelector(".canvas-container");
-    this.canvas = this.canvasContainer.querySelector("canvas");
+    this.canvas = this.gameScreen.querySelector("canvas");
     this.ctx = this.canvas.getContext("2d");
 
     this.timeElement = this.gameScreen.querySelector(".time .value");
     this.scoreElement = this.gameScreen.querySelector(".score .value");
 
-    var containerWidth = this.canvasContainer.offsetWidth;
-    var containerHeight = this.canvasContainer.offsetHeight;
-
-    this.canvas.setAttribute("width", containerWidth);
-    this.canvas.setAttribute("height", containerHeight);
+    this.containerWidth = this.canvasContainer.offsetWidth;
+    this.containerHeight = this.canvasContainer.offsetHeight;
+    this.canvas.setAttribute("width", this.containerWidth);
+    this.canvas.setAttribute("height", this.containerHeight);
 
     this.handleKeySpace = function(event) {
       if (event.key === "Space") {
@@ -45,30 +44,30 @@ function Game(){
     var loop = function(){
       console.log("Game looping");
 
-      // this.time++;
-      // this.time.element.innerHTML = this.time;
-      this.score++;
-      this.scoreElement.innerHTML = this.score;
-
-      if (Math.random() > 0.98) {
-        var newBeverage = new Beverage(this.canvas, 0, 5);
-        this.beverage.push(newBeverage);
-      };
-
-      this.checkScreenCollision();
-
-      this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
-    
-      this.beverage.forEach(function(beverage){
-        beverage.draw();
-      });
-
       if(!this.gameOver){
-      window.requestAnimationFrame(loop);
-    }
-    }.bind(this);
+        window.requestAnimationFrame(loop);
+        }
+      }.bind(this);
 
-    window.requestAnimationFrame(loop);
+      // this.time++;
+      // // this.time.element.innerHTML = this.time;
+      // this.score++;
+      // this.scoreElement.innerHTML = this.score;
+
+      // if (Math.random() > 0.98) {
+      //   var newBeverage = new Beverage(this.canvas, 0, 5);
+      //   this.beverage.push(newBeverage);
+      // };
+
+      // this.checkScreenCollision();
+
+      // this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
+    
+      // this.beverage.forEach(function(beverage){
+      //   beverage.draw();
+      // });
+
+      window.requestAnimationFrame(loop);
   };
   
   Game.prototype.checkScreenCollision = function(){
@@ -82,6 +81,14 @@ function Game(){
     }, this);
   };
   
+
+  Game.prototype.checkCoffeeClicked = function(){
+    if (this.beverage.isCoffee === true){
+      this.score++;
+    }
+  };
+
+
   Game.prototype.updateScore = function(){
     this.updateGameStatus();
   };
@@ -92,13 +99,11 @@ function Game(){
     console.log("GAME OVER!")
   };
 
-  
-  Game.prototype.checkCoffeeClicked = function(){
-    if (this.beverage.isCoffee === true){
-      this.score++;
-    }
-  };
 
+  Game.prototype.removeGameScreen = function(){
+
+  };
+  
   
   Game.prototype.checkTime = function(){
   
