@@ -33,7 +33,6 @@ function Game(){
         this.updateScore();
       }
     }; 
-    
 
     window.addEventListener("keyspace", this.handleKeySpace.bind(this));
 
@@ -42,16 +41,14 @@ function Game(){
 
   
   Game.prototype.startLoop = function(){
-    this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
+   
     var loop = function(){
       console.log("Game looping");
 
       // this.time++;
       // this.time.element.innerHTML = this.time;
-
       this.score++;
       this.scoreElement.innerHTML = this.score;
-
 
       if (Math.random() > 0.98) {
         var newBeverage = new Beverage(this.canvas, 0, 5);
@@ -60,11 +57,11 @@ function Game(){
 
       this.checkScreenCollision();
 
-      this.isInsideScreen(beverage);
-      
-      this.beverage.draw();
-
-
+      this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
+    
+      this.beverage.forEach(function(beverage){
+        beverage.draw();
+      });
 
       if(!this.gameOver){
       window.requestAnimationFrame(loop);
@@ -72,25 +69,27 @@ function Game(){
     }.bind(this);
 
     window.requestAnimationFrame(loop);
-
   };
   
   Game.prototype.checkScreenCollision = function(){
-      if (!isInsideScreen){
+    this.beverage.forEach(function(beverage){
+      if (!beverage.isInsideScreen){
         this.score--;
       }
+      if (this.score <= 0){
+        this.gameOver();
+      }
+    }, this);
   };
-
   
   Game.prototype.updateScore = function(){
     this.updateGameStatus();
   };
 
   
-  Game.prototype.setGameOver = function(){
-    if(this.score < 0){
-      return this.gameOver;
-    }
+  Game.prototype.gameOver = function(){
+    this.gameOver = true;
+    console.log("GAME OVER!")
   };
 
   

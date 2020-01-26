@@ -14,7 +14,7 @@ function Beverage(canvas, y, speed){
    
   Beverage.prototype.draw = function(){
     this.ctx.fillStyle = "blue";
-    this.ctx.fillRect(this.x, this.y, this.size);
+    this.ctx.fillRect(this.x, this.y, this.size, this.speed);
   };
 
   

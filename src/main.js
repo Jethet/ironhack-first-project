@@ -89,12 +89,12 @@ function main(){
         removeSplashScreen();
 
         var game = new Game();
-        game.gameScreen = buildGameScreen();
+        game.gameScreen = createGameScreen();
 
         game.start();
     }
 
-    function gameOver(){
+    function gameOver(gameOver){
         
     };
 
