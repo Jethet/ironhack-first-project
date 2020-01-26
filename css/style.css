@@ -35,6 +35,8 @@ html {
   }
   
   .container {
+    background-color: tan;
+    border: 2px red;
     margin: 0 20px;
   }
   
@@ -42,7 +44,6 @@ html {
     .container {
       max-width: 728px;  /* Resizes the container to 728px for large screens */
       margin: 0 auto;
-      border: 2px red;
     }
   }
   

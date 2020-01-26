@@ -15,7 +15,7 @@ function main(){
     var splashScreen;
     var gameOverScreen;
 
-    function buildSplashScreen(){
+    function createSplashScreen(){
         splashScreen = buildDom(`
         <main>
         <h1>Get Your Coffee!</h1>
@@ -36,9 +36,9 @@ function main(){
     };
 
 
-    function buildGameScreen(){
+    function createGameScreen(){
         var gameScreen = buildDom(`
-        <main class="game container">
+        <main class="game-container">
         <header>
             <div class="time">
             <span class="label">Your time:</span>
@@ -99,7 +99,7 @@ function main(){
     };
 
     // Initialize the start screen:
-    buildSplashScreen();
+    createSplashScreen();
 };
 
 window.addEventListener('load', main);

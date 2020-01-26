@@ -46,15 +46,15 @@ function Game(){
     var loop = function(){
       console.log("Game looping");
 
-      this.time++;
-      this.time.element.innerHTML = this.time;
+      // this.time++;
+      // this.time.element.innerHTML = this.time;
 
       this.score++;
       this.scoreElement.innerHTML = this.score;
 
 
       if (Math.random() > 0.98) {
-        var newBeverage = new Beverage(this.canvas, y = 0, 5);
+        var newBeverage = new Beverage(this.canvas, 0, 5);
         this.beverage.push(newBeverage);
       };
 
@@ -102,25 +102,14 @@ function Game(){
 
   
   Game.prototype.checkTime = function(){
-    this.time.minutes = minutes;
-    this.time.seconds = seconds;
+  
   };
 
   
   Game.prototype.printTime = function(){
-      printMinutes();
-      printSeconds();
+  
   }
   
-  function printMinutes(minutes) {
-      minDec.innerHTML = minutes[0];
-      minUni.innerHTML = minutes[1];
-  }
-  
-  function printSeconds(seconds) {
-      secDec.innerHTML = seconds[0];
-      secUni.innerHTML = seconds[1];
-  }
   
   
   

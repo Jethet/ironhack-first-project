@@ -3,7 +3,7 @@
 function Beverage(canvas, y, speed){
     this.canvas = canvas;
     this.ctx = this.canvas.getContext("2d");
-    this.size = 50;
+    this.size = Math.floor(20 + Math.random() * (100-20 + 1));
   //  this.direction = 0;
     this.speed = 5;
     this.x = canvas.width + this.size;
@@ -14,7 +14,7 @@ function Beverage(canvas, y, speed){
    
   Beverage.prototype.draw = function(){
     this.ctx.fillStyle = "blue";
-    this.ctx.fillRect(this.x, this.y, this.size, this.size);
+    this.ctx.fillRect(this.x, this.y, this.size);
   };
 
   
