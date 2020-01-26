@@ -56,6 +56,7 @@ function Game(){
       this.checkScreenCollision();
 
     // c. Move beverages
+      this.moveForward();
 
     // d. Check if coffee under bialetti and clicked
       this.checkCoffeeClicked();
@@ -78,10 +79,7 @@ function Game(){
                      // to bind the function: to point to 'game' object
                      // Syntax: var loop = function(){}.bind(this);
 
-      // this.time++;
-      // // this.time.element.innerHTML = this.time;
-      // this.score++;
-      // this.scoreElement.innerHTML = this.score;
+      this.scoreElement.innerHTML = this.score;
 
       window.requestAnimationFrame(loop);
   };
@@ -108,8 +106,8 @@ function Game(){
 
 
   Game.prototype.updateScore = function(){
-    checkCoffeeClicked()
-
+    checkCoffeeClicked();
+    return this.score;
   };
 
   
@@ -118,6 +116,15 @@ function Game(){
     console.log("GAME OVER!")
   };
 
+  Game.prototype.passGameOverCallback = function(gameOver){  // I do not understand this
+    this.onGameOverCallback = gameOver;
+  }
+
+  Game.prototype.gameOver = function(){  // I do not understand the callback
+    this.gameIsOver = true;
+
+    this.onGameOverCallback();
+  }
 
   Game.prototype.removeGameScreen = function(){
 

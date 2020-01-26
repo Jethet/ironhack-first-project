@@ -63,39 +63,43 @@ function main(){
     }
 
 
-    // function buildGameOverScreen(score){
-    //     gameOverScreen = buildDom(`
-    //     <main>
-    //         <h1>Game over</h1>
-    //         <p>You scored <span>${score}</span> cups of Best Coffee!! Would you like to play again?</p>
-    //         <button>Restart</button>
-    //     </main>
-    //     `); // this button needs an event listener
+    function createGameOverScreen(score){
+        gameOverScreen = buildDom(`
+        <main>
+            <h1>Game over</h1>
+            <p>You scored <span>${score}</span> cups of Best Coffee!! Would you like to play again?</p>
+            <button>Restart</button>
+        </main>
+        `); // this button needs an event listener
 
-    //     document.body.appendChild(gameOverScreen);
-    //     var button = gameOverScreen.querySelector('button');
-    //     button.addEventListener('click', startGame);
+        document.body.appendChild(gameOverScreen);
+        var button = gameOverScreen.querySelector('button');
+        button.addEventListener('click', startGame);
 
-    // };
+    };
 
-    // function removeGameOverScreen(){
-    //     if (gameOverScreen !== undefined){
-    //         gameOverScreen.remove();
-    //     }
-    // }
+    function removeGameOverScreen(){
+        if (gameOverScreen !== undefined){
+            gameOverScreen.remove();
+        }
+    }
 
     function startGame(){
         removeSplashScreen();
+        removeGameOverScreen();
 
         var game = new Game();
         game.gameScreen = createGameScreen();
 
         game.start();
+
+        game.passGameOverCallback(gameOver);  // I do not understand this
     }
 
-    //function gameOver(gameOver){
-        
-    //};
+    function gameOver(score){
+        removeGameScreen();
+        createGameOverScreen();
+    };
 
     // Initialize the start screen:
     //createSplashScreen();
