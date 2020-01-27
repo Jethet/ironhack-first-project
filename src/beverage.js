@@ -9,7 +9,7 @@ function Beverage(canvas, isCoffee, color, speed){
   //  this.direction = 0;
     this.speed = speed;
     this.x = this.canvas.width + this.width;
-    this.y = 400;
+    this.y = 300;
     this.isCoffee = isCoffee;
     this.color = color;
   };

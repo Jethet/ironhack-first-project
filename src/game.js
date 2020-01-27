@@ -96,12 +96,11 @@ function Game(){
   
   Game.prototype.checkScreenCollision = function(){
     this.beverage.forEach(function(beverage){
-      if (this.beverage.moveForward && !this.beverage.isInsideScreen){
+        if (this.beverage.isInsideScreen > this.canvas.width){
         this.count--;
       }
     }, this);
   };
-
 
   Game.prototype.checkCoffeeClicked = function(){
       this.beverage = this.beverage.filter(function(oneBeverage){
@@ -140,7 +139,6 @@ function Game(){
   Game.prototype.removeGameScreen = function(){
     this.gameScreen.remove();
   };
-  
   
   Game.prototype.checkTime = function(){
     if (this.time === 60){
