@@ -14,13 +14,11 @@ function Beverage(canvas, isCoffee, color, speed){
     this.color = color;
   };
 
-   
   Beverage.prototype.draw = function(){
     this.ctx.fillStyle = this.color;
     this.ctx.fillRect(this.x, this.y, this.width, this.height);
   };
 
-  
   Beverage.prototype.moveForward = function(){
     this.x = this.x - this.speed;   // images move from right to left
   };
@@ -33,5 +31,4 @@ function Beverage(canvas, isCoffee, color, speed){
 
   Beverage.prototype.isInsideScreen = function(){
     return this.x + this.width / 2 > 0;
-    //return this.x + this.size > 0;  THIS IS IN THE CODEALONG
   }

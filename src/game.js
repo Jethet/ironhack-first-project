@@ -55,12 +55,12 @@ function Game(){
         this.beverage.push(new Beverage(this.canvas, false, "red", 10));
       } else if (Math.random() > 0.995){
         this.beverage.push(new Beverage(this.canvas, true, "brown", 10));
-      }
+      };
       
       this.beverage = this.beverage.filter(function(oneBeverage){
         oneBeverage.moveForward();
         return oneBeverage.isInsideScreen();
-      })
+      });
 
     // b. Check if the beverages are off screen (check all of the beverages)
       this.checkScreenCollision();
@@ -75,7 +75,7 @@ function Game(){
       });
 
       this.ctx.fillStyle = "black";
-      this.ctx.fillRect(this.bialetti, this.canvas.height -20, 200, 50);
+      this.ctx.fillRect(this.bialetti, this.canvas.height -20, 200, 100);
     // d. Check if counter down to zero:
        this.checkIfGameOver();  
        this.checkTime();
@@ -95,56 +95,47 @@ function Game(){
     };
   
   Game.prototype.checkScreenCollision = function(){
-    // this.beverage.forEach(function(beverage){
-    //   if (!beverage.isInsideScreen){
-    //     this.score--;
-    //   }
-    //   if (this.score <= 0){
-    //     this.gameOver();
-    //   }
-    // }, this);
+    this.beverage.forEach(function(beverage){
+      if (this.beverage.moveForward && !this.beverage.isInsideScreen){
+        this.count--;
+      }
+    }, this);
   };
 
 
   Game.prototype.checkCoffeeClicked = function(){
-      
       this.beverage = this.beverage.filter(function(oneBeverage){
         return oneBeverage.x > this.bialetti - oneBeverage.width || oneBeverage.x < this.bialetti + oneBeverage.width;
       }, this);
-  
-      console.log('beverageToClick :', this.beverage);
-      
+
       if(this.beverage.length > 0) {
         if (this.beverage[0].isCoffee === true) {
           this.score ++;
-          console.log("Good job")
         } else {
             this.score--;
-            console.log("Stupid")
-        }
-      }
+        };
+      };
       console.log(this.score);  
   };
 
   Game.prototype.updateScore = function(){
- //   checkCoffeeClicked();
     this.scoreElement.innerHTML = this.score;
   };
 
   Game.prototype.checkIfGameOver = function(){
     if (this.score <= 0){
       this.gameOver();
-    }
-  }
+    };
+  };
 
   Game.prototype.passGameOverCallback = function(gameOver){  // I do not understand this
     this.onGameOverCallback = gameOver;
-  }
+  };
 
   Game.prototype.gameOver = function(){  // I do not understand the callback
     this.gameIsOver = true;
     this.onGameOverCallback();
-  }
+  };
 
   Game.prototype.removeGameScreen = function(){
     this.gameScreen.remove();
@@ -154,18 +145,16 @@ function Game(){
   Game.prototype.checkTime = function(){
     if (this.time === 60){
       this.gameOver();
-    }
+    };
   };
 
-  
   Game.prototype.printTime = function(){
     this.loopCount++;
     if (this.loopCount % 60 === 0) {
       this.time = Math.floor(this.loopCount / 60);
       this.timeElement.innerHTML = this.time;
-    }
-  
-  }
+    };
+  };
   
   
   
