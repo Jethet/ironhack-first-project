@@ -5,7 +5,8 @@ function Game(){
     this.ctx = null;
 
     this.time = 0;
-    this.score = null;
+    this.loopCount = 0;
+    this.score = 5;
     this.beverage = [];
     this.bialetti = 200;
 
@@ -40,7 +41,6 @@ function Game(){
     this.startLoop();
   };
 
-  
   Game.prototype.startLoop = function(){
     var loop = function(){
       console.log("Game looping");
@@ -48,21 +48,19 @@ function Game(){
     this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
 
     // 1. UPDATE THE STATE (game, beverages)
-    //this.score++;
-      this.scoreElement.innerHTML = this.score;
-    // a. Create beverages randomly
+    
+
+    // a. Create beverages randomly      
+    if (Math.random() > 0.99) {
+        this.beverage.push(new Beverage(this.canvas, false, "red", 10));
+      } else if (Math.random() > 0.995){
+        this.beverage.push(new Beverage(this.canvas, true, "brown", 10));
+      }
       
-      
-      if (Math.random() > 0.99) {
-          this.beverage.push(new Beverage(this.canvas, false, "red", 10));
-        } else if (Math.random() > 0.995){
-          this.beverage.push(new Beverage(this.canvas, true, "brown", 10));
-        }
-        
-        this.beverage = this.beverage.filter(function(oneBeverage){
-          oneBeverage.moveForward();
-          return oneBeverage.isInsideScreen();
-        })
+      this.beverage = this.beverage.filter(function(oneBeverage){
+        oneBeverage.moveForward();
+        return oneBeverage.isInsideScreen();
+      })
 
     // b. Check if the beverages are off screen (check all of the beverages)
       this.checkScreenCollision();
@@ -70,10 +68,6 @@ function Game(){
     // c. Move beverages
      // this.moveForward();
 
-    // d. Check if counter down to zero:
-      //this.checkIfGameOver();
-      
-      
     // UDATE CANVAS
     //  a. draw beverages
       this.beverage.forEach(function(beverage){
@@ -81,8 +75,11 @@ function Game(){
       });
 
       this.ctx.fillStyle = "black";
-      this.ctx.fillRect(this.bialetti, this.canvas.height -20, 50, 50);
-
+      this.ctx.fillRect(this.bialetti, this.canvas.height -20, 200, 50);
+    // d. Check if counter down to zero:
+       this.checkIfGameOver();  
+       this.checkTime();
+       this.printTime();
     // Terminate loop if game is over
       if(!this.gameIsOver){
         window.requestAnimationFrame(loop);
@@ -110,21 +107,24 @@ function Game(){
 
 
   Game.prototype.checkCoffeeClicked = function(){
-    this.beverage = this.beverage.filter(function(oneBeverage){
-      return oneBeverage.x > this.bialetti - oneBeverage.width || oneBeverage.x < this.bialetti + oneBeverage.width;
-    }, this);
-    if (this.beverage[0].isCoffee === true) {
-      this.score++;
-      console.log("Good job")
-    } else {
-      this.score--;
-      console.log("Stupid")
-    }
-    if (this.score === 0){
-      this.gameOver();
-    }
+      
+      this.beverage = this.beverage.filter(function(oneBeverage){
+        return oneBeverage.x > this.bialetti - oneBeverage.width || oneBeverage.x < this.bialetti + oneBeverage.width;
+      }, this);
+  
+      console.log('beverageToClick :', this.beverage);
+      
+      if(this.beverage.length > 0) {
+        if (this.beverage[0].isCoffee === true) {
+          this.score ++;
+          console.log("Good job")
+        } else {
+            this.score--;
+            console.log("Stupid")
+        }
+      }
+      console.log(this.score);  
   };
-
 
   Game.prototype.updateScore = function(){
  //   checkCoffeeClicked();
@@ -132,8 +132,8 @@ function Game(){
   };
 
   Game.prototype.checkIfGameOver = function(){
-    if (this.score < 0){
-      this.gameIsOver = true;
+    if (this.score <= 0){
+      this.gameOver();
     }
   }
 
@@ -152,13 +152,18 @@ function Game(){
   
   
   Game.prototype.checkTime = function(){
-    setInterval(setTime, 1000)
-
-  
+    if (this.time === 60){
+      this.gameOver();
+    }
   };
 
   
   Game.prototype.printTime = function(){
+    this.loopCount++;
+    if (this.loopCount % 60 === 0) {
+      this.time = Math.floor(this.loopCount / 60);
+      this.timeElement.innerHTML = this.time;
+    }
   
   }
   

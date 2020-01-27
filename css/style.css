@@ -28,6 +28,7 @@ html {
   
   
   
+  
   /* ---- layout ---- */
   
   html, body {
@@ -94,7 +95,7 @@ html {
     margin-left: 40px;
     padding: 32px 16px;
     text-decoration: none;
-    transition-duration: 0.4s;   
+    transition-duration: 0.2s;   
   }
 
   #start-button:hover {
