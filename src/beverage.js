@@ -5,8 +5,6 @@ function Beverage(canvas, isCoffee, color, speed){
     this.ctx = this.canvas.getContext("2d");
     this.width = 100;
     this.height = 200;
-    //   this was intended to vary the size
-  //  this.direction = 0;
     this.speed = speed;
     this.x = this.canvas.width + this.width;
     this.y = 300;
@@ -20,7 +18,7 @@ function Beverage(canvas, isCoffee, color, speed){
   };
 
   Beverage.prototype.moveForward = function(){
-    this.x = this.x - this.speed;   // images move from right to left
+    this.x = this.x - this.speed;
   };
 
   Beverage.prototype.checkIfCoffee = function(){
