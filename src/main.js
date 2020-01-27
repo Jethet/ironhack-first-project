@@ -91,7 +91,7 @@ function main(){
         removeSplashScreen();
         removeGameOverScreen();
 
-        var game = new Game();
+        game = new Game();
         game.gameScreen = createGameScreen();
 
         game.start();

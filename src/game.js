@@ -5,12 +5,12 @@ function Game(){
     this.ctx = null;
 
     this.time = 0;
-    this.score = 0;
+    this.score = null;
     this.beverage = [];
-    this.bialetti = null;
+    this.bialetti = 200;
 
     this.gameScreen = null;
-    this.gameOver = false;
+    this.gameIsOver = false;
   };
   
   Game.prototype.start = function(){
@@ -22,20 +22,20 @@ function Game(){
     this.timeElement = this.gameScreen.querySelector(".time .value");
     this.scoreElement = this.gameScreen.querySelector(".score .value");
 
-    this.containerWidth = this.canvasContainer.offsetWidth;
-    this.containerHeight = this.canvasContainer.offsetHeight;
-    this.canvas.setAttribute("width", this.containerWidth);
-    this.canvas.setAttribute("height", this.containerHeight);
+    this.canvas.width = window.innerWidth;
+    this.canvas.height = window.innerHeight;
+    this.canvas.style.maxWidth = "800px";
+    this.canvas.style.maxHeight = "600px";
 
     // this.bialetti = image, coordinates
 
     this.handleKeySpace = function(event) {
-      if (event.key === "Space") {
-        console.log("SPACE");
+      if (event.keyCode === 32) {
+        this.checkCoffeeClicked();
       }
     }; 
 
-    window.addEventListener("keyspace", this.handleKeySpace.bind(this));
+    window.addEventListener("keydown", this.handleKeySpace.bind(this));
 
     this.startLoop();
   };
@@ -44,16 +44,25 @@ function Game(){
   Game.prototype.startLoop = function(){
     var loop = function(){
       console.log("Game looping");
+    // CLEAR CANVAS
+    this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
 
     // 1. UPDATE THE STATE (game, beverages)
-    // a. Create beverages randomly
-      this.score++;
+    //this.score++;
       this.scoreElement.innerHTML = this.score;
+    // a. Create beverages randomly
       
-      if (Math.random() > 0.98) {
-          var newBeverage = new Beverage(this.canvas, 0, 5);
-          this.beverage.push(newBeverage);
-        };
+      
+      if (Math.random() > 0.99) {
+          this.beverage.push(new Beverage(this.canvas, false, "red", 10));
+        } else if (Math.random() > 0.995){
+          this.beverage.push(new Beverage(this.canvas, true, "brown", 10));
+        }
+        
+        this.beverage = this.beverage.filter(function(oneBeverage){
+          oneBeverage.moveForward();
+          return oneBeverage.isInsideScreen();
+        })
 
     // b. Check if the beverages are off screen (check all of the beverages)
       this.checkScreenCollision();
@@ -61,21 +70,21 @@ function Game(){
     // c. Move beverages
      // this.moveForward();
 
-    // d. Check if coffee under bialetti and clicked
-      //this.checkCoffeeClicked();
+    // d. Check if counter down to zero:
+      //this.checkIfGameOver();
       
-
-    // CLEAR CANVAS
-      this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
-
+      
     // UDATE CANVAS
     //  a. draw beverages
       this.beverage.forEach(function(beverage){
         beverage.draw();
       });
 
+      this.ctx.fillStyle = "black";
+      this.ctx.fillRect(this.bialetti, this.canvas.height -20, 50, 50);
+
     // Terminate loop if game is over
-      if(!this.gameOver){
+      if(!this.gameIsOver){
         window.requestAnimationFrame(loop);
         }
         this.updateScore();
@@ -86,26 +95,34 @@ function Game(){
       this.scoreElement.innerHTML = this.score;
 
       window.requestAnimationFrame(loop);
-  };
+    };
   
   Game.prototype.checkScreenCollision = function(){
-    this.beverage.forEach(function(beverage){
-      if (!beverage.isInsideScreen){
-        this.score--;
-      }
-      if (this.score <= 0){
-        this.gameOver();
-      }
-    }, this);
+    // this.beverage.forEach(function(beverage){
+    //   if (!beverage.isInsideScreen){
+    //     this.score--;
+    //   }
+    //   if (this.score <= 0){
+    //     this.gameOver();
+    //   }
+    // }, this);
   };
 
 
   Game.prototype.checkCoffeeClicked = function(){
-    if (this.beverage.isCoffee === true){
-      if (this.beverage.y === this.bialetti.y && this.handleKeySpace === true){
-        this.score++;
-      }
-    } return this.score;
+    this.beverage = this.beverage.filter(function(oneBeverage){
+      return oneBeverage.x > this.bialetti - oneBeverage.width || oneBeverage.x < this.bialetti + oneBeverage.width;
+    }, this);
+    if (this.beverage[0].isCoffee === true) {
+      this.score++;
+      console.log("Good job")
+    } else {
+      this.score--;
+      console.log("Stupid")
+    }
+    if (this.score === 0){
+      this.gameOver();
+    }
   };
 
 
@@ -114,11 +131,11 @@ function Game(){
     this.scoreElement.innerHTML = this.score;
   };
 
-  
-  Game.prototype.gameOver = function(){
-    this.gameOver = true;
-    console.log("GAME OVER!")
-  };
+  Game.prototype.checkIfGameOver = function(){
+    if (this.score < 0){
+      this.gameIsOver = true;
+    }
+  }
 
   Game.prototype.passGameOverCallback = function(gameOver){  // I do not understand this
     this.onGameOverCallback = gameOver;
@@ -126,7 +143,6 @@ function Game(){
 
   Game.prototype.gameOver = function(){  // I do not understand the callback
     this.gameIsOver = true;
-
     this.onGameOverCallback();
   }
 
@@ -136,6 +152,8 @@ function Game(){
   
   
   Game.prototype.checkTime = function(){
+    setInterval(setTime, 1000)
+
   
   };
 
