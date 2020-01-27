@@ -44,19 +44,22 @@ function Game(){
   Game.prototype.startLoop = function(){
     var loop = function(){
       console.log("Game looping");
+      
     // CLEAR CANVAS
     this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
 
     // 1. UPDATE THE STATE (game, beverages)
     
 
-    // a. Create beverages randomly      
+    // a. Create beverages randomly  
     if (Math.random() > 0.99) {
+      var pushBeverage = this.beverage.x += 3;
+      if (pushBeverage > 2 && pushBeverage < 5){
         this.beverage.push(new Beverage(this.canvas, false, "red", 10));
       } else if (Math.random() > 0.995){
         this.beverage.push(new Beverage(this.canvas, true, "brown", 10));
       };
-      
+    }
       this.beverage = this.beverage.filter(function(oneBeverage){
         oneBeverage.moveForward();
         return oneBeverage.isInsideScreen();
