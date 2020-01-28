@@ -5,7 +5,7 @@ function Beverage(canvas, isCoffee, imagesrc, speed){
     this.ctx = this.canvas.getContext("2d");
     this.width = 100;
     this.height = 100;
-    this.speed = speed * 2;
+    this.speed = speed;
     this.x = this.canvas.width + this.width;
     this.y = 300;
     this.isCoffee = isCoffee;

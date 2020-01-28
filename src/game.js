@@ -105,7 +105,7 @@ function Game(){
     
   Game.prototype.createBeverage = function(isCoffee, imagesrc){
     var pushDrink = true;
-    var newBeverage = new Beverage(this.canvas, isCoffee, imagesrc, 10);
+    var newBeverage = new Beverage(this.canvas, isCoffee, imagesrc, 20);
       this.beverage.forEach(function(drink){
         if (drink.y === newBeverage.y && drink.x < newBeverage.x + newBeverage.width + 50){
           pushDrink = false;
