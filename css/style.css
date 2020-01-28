@@ -18,20 +18,29 @@ html {
   body {
     color: #111;
     font-family: Helvetica, Arial, sans-serif;
-    font-size: 16px;
+    font-size: 40px;
     line-height: 147%;
   }
   
-  p {
+ .game-over-container p {
     margin: 0;
+    font-size: 50px;
+    font-weight: bolder;
   }
   
-  canvas {
-    border: 2px red;
+  main h1 {
+    margin-top: 10px;
+    padding-top: 90px;
+  }
 
+  h2 {
+    padding-top: 20px;
   }
   
-  
+  main #one {
+    padding: 20px;
+  }
+
   
   /* ---- layout ---- */
   
@@ -52,7 +61,25 @@ html {
     min-height: 1000px;
     max-width: auto;
   }
+
+  body .game-container {
+    background-image: url('../images/border-4515401_1280.png');
+    background-size: contain;
+    background-size: cover;
+    min-height: 1000px;
+    max-width: auto;
+  }
   
+  body .game-over-container {
+    background-image: url('../images/border-4515401_1280.png');
+    background-size: contain;
+    background-size: cover;
+    min-height: 1000px;
+    max-width: auto;
+    text-align: center;
+    position: relative;
+  }
+
   @media (min-width: 768px) {
     .container {
       max-width: 728px;  /* Resizes the container to 728px for large screens */
@@ -60,17 +87,20 @@ html {
     }
   }
   
-  
+  header {
+    background-color:#8B4513;
+    color: white;
+    padding: 10px;
+  }
+
   #start-button {
-    background-color:#8B4513; /* CAN I USE A COFFEE CUP PICTURE SOMEHOW?? */
+    background-color:#8B4513;
     border: 2px solid black;
     border-radius: 50%;
     color: white;
-    display: flex;
-    font-size: 20px;
-    justify-content: left;
-    margin-left: 40px;
-    padding: 32px 16px;
+    margin: 60px;
+    font-size: 50px;
+    padding: 40px 18px;
     text-decoration: none;
     transition-duration: 0.1s;   
   }
@@ -80,29 +110,15 @@ html {
     color: white;
   }
 
-  .time {
-    background-color:#8B4513;
-    color: white;
-    margin-right: 50px;
-    width: 150px;
-  }
-
-  .score {
-    background-color:#8B4513;
-    color: white;
-    align-items: right;
-  }
-
+ 
   #restart-button {
     background-color:#8B4513;
     border: 2px solid black;
     border-radius: 50%;
     color: white;
-    display: flex;
-    font-size: 20px;
-    justify-content: left;
-    margin-left: 40px;
-    padding: 32px 16px;
+    margin: 60px;
+    font-size: 50px;
+    padding: 40px 18px;
     text-decoration: none;
     transition-duration: 0.1s;   
   }

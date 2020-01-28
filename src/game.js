@@ -28,8 +28,8 @@ function Game(){
 
     this.canvas.width = window.innerWidth;
     this.canvas.height = window.innerHeight;
-    this.canvas.style.maxWidth = "800px";
-    this.canvas.style.maxHeight = "600px";
+    //this.canvas.style.maxWidth = "800px";   I HAVE COMMENTED THIS OUT TO GET FULL BACKGROUND ON GAME PAGE
+    //this.canvas.style.maxHeight = "600px";
 
     // this.bialetti = image, coordinates
 
@@ -58,10 +58,10 @@ function Game(){
     // Create beverages randomly  
     
     if (Math.random() > 0.99) {
-      this.createBeverage(true, "images/coffee_cup.png");
+      this.createBeverage(true, "images/coffee-cup.png");
     } 
       else if (Math.random() > 0.97){
-      this.createBeverage(false, "images/coffee_bean.png");
+      this.createBeverage(false, "images/beer-jar.png");
      
     };
 
@@ -83,6 +83,8 @@ function Game(){
 
       this.ctx.fillStyle = "black";
       this.ctx.fillRect(this.bialetti, this.canvas.height -100, 200, 100);
+
+      //this.ctx.drawImage('images/coffee-percolator.png', this.bialetti, 25, 21)
 
     // Check if counter down to zero:
        this.checkIfGameOver();  

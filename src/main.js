@@ -18,9 +18,12 @@ function main(){
     function createSplashScreen(){
         splashScreen = buildDom(`
         <main class="splash-screen-container">
-            <h1>Get Your Coffee!</h1>
-            <h2>A game for the True Coffee Lover</h2>
-            <button id="start-button">Get your coffee!!!</button>
+        <br>
+        <h1 style="text-align:center">Get Your Coffee!</h1>
+        <h2 style="text-align:center">A game for the True Coffee Lover</h2>
+        <center>
+        <button id="start-button">Get your coffee!!!</button>
+        </center>
         </main>`);
 
         document.body.appendChild(splashScreen);
@@ -38,7 +41,7 @@ function main(){
 
     function createGameScreen(){
         var gameScreen = buildDom(`
-        <body class="body-background">
+        <body>
         <main class="game-container">
         <header>
             <div class="time">
@@ -68,10 +71,15 @@ function main(){
 
     function createGameOverScreen(score){
         gameOverScreen = buildDom(`
-        <main>
+        <main class="game-over-container">
+            <br>
             <h1>Game over</h1>
-            <p>You scored <span>${score}</span> cups of Best Coffee!! Would you like to play again?</p>
+            <p id="one">You scored <span>${score}</span> cups of Best Coffee!!</p>
+            <br>
+            <p id="two">Would you like to play again?</p>
+            <div>
             <button id="restart-button">Play another game</button>
+            </div>
         </main>
         `); 
 
