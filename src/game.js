@@ -48,10 +48,10 @@ function Game(){
     // CLEAR CANVAS
     this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
 
-    // 1. UPDATE THE STATE (game, beverages)
+    // UPDATE THE STATE (game, beverages)
     
 
-    // a. Create beverages randomly  
+    // Create beverages randomly  
     var pushDrink = true;
     if (Math.random() > 0.99) {
       var newBeverage = new Beverage(this.canvas, true, "brown", 10);
@@ -81,10 +81,10 @@ function Game(){
       return oneBeverage.isInsideScreen();
     });
 
-    // b. Check if the beverages are off screen (check all of the beverages)
+    // Check if the beverages are off screen (check all of the beverages)
       this.checkScreenCollision();
 
-    // c. Move beverages
+    // Move beverages
      // this.moveForward();
 
     // UDATE CANVAS - draw beverages
@@ -94,7 +94,7 @@ function Game(){
 
       this.ctx.fillStyle = "black";
       this.ctx.fillRect(this.bialetti, this.canvas.height -100, 200, 100);
-      
+
     // Check if counter down to zero:
        this.checkIfGameOver();  
        this.checkTime();
