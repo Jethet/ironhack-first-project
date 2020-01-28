@@ -12,6 +12,9 @@ function Game(){
 
     this.gameScreen = null;
     this.gameIsOver = false;
+
+    this.backImg = new Image();
+    this.backImg.src = 'images/border-4515401_1280.png';
   };
   
   Game.prototype.start = function(){
@@ -49,31 +52,36 @@ function Game(){
     this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
 
     // UPDATE THE STATE (game, beverages)
-    
+    //background
+    this.ctx.drawImage(this.backImg, 0, 0);
 
     // Create beverages randomly  
     var pushDrink = true;
     if (Math.random() > 0.99) {
-      var newBeverage = new Beverage(this.canvas, true, "brown", 10);
-      this.beverage.forEach(function(drink){
-        if (drink.y === newBeverage.y && drink.x < newBeverage.x + newBeverage.width + 50){
-          pushDrink = false;
-        }
-      });
-      if (pushDrink === true){
-        this.beverage.push(newBeverage);
-      }
+      this.beverage.draw();
+    }
+    //   var newBeverage = new Beverage(this.canvas, true, "brown", 10);
+    //   this.beverage.forEach(function(drink){
+    //     if (drink.y === newBeverage.y && drink.x < newBeverage.x + newBeverage.width + 50){
+    //       pushDrink = false;
+    //     }
+    //   });
+    //   if (pushDrink === true){
+    //     this.beverage.push(newBeverage);
+    //   }
       
-    } else if (Math.random() > 0.98){
-      var newBeverage = new Beverage(this.canvas, false, "red", 10);
-      this.beverage.forEach(function(drink){
-        if (drink.y === newBeverage.y && drink.x < newBeverage.x + newBeverage.width + 50){
-          pushDrink = false;
-        }
-      });
-      if (pushDrink === true){
-        this.beverage.push(newBeverage);
-      }
+      else if (Math.random() > 0.98){
+        this.beverage.draw();
+      
+    //   var newBeverage = new Beverage(this.canvas, false, "red", 10);
+    //   this.beverage.forEach(function(drink){
+    //     if (drink.y === newBeverage.y && drink.x < newBeverage.x + newBeverage.width + 50){
+    //       pushDrink = false;
+    //     }
+    //   });
+    //   if (pushDrink === true){
+    //     this.beverage.push(newBeverage);
+    //   }
     };
 
     this.beverage = this.beverage.filter(function(oneBeverage){
@@ -112,6 +120,8 @@ function Game(){
 
       window.requestAnimationFrame(loop);
     };
+
+
   
   Game.prototype.checkScreenCollision = function(){
     this.beverage.forEach(function(beverageCollide){

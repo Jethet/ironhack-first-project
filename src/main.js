@@ -17,7 +17,7 @@ function main(){
 
     function createSplashScreen(){
         splashScreen = buildDom(`
-        <main>
+        <main class="splash-screen-container">
             <h1>Get Your Coffee!</h1>
             <h2>A game for the True Coffee Lover</h2>
             <button id="start-button">Get your coffee!!!</button>
@@ -38,6 +38,7 @@ function main(){
 
     function createGameScreen(){
         var gameScreen = buildDom(`
+        <body class="body-background">
         <main class="game-container">
         <header>
             <div class="time">
@@ -52,7 +53,8 @@ function main(){
         <div class="canvas-container">
             <canvas></canvas>
         </div>
-        </main>`);
+        </main>
+        </body>`);
 
         document.body.appendChild(gameScreen);
         return gameScreen;
