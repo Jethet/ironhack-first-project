@@ -52,18 +52,34 @@ function Game(){
     
 
     // a. Create beverages randomly  
+    var pushDrink = true;
     if (Math.random() > 0.99) {
-      var pushBeverage = this.beverage.x += 3;
-      if (pushBeverage > 2 && pushBeverage < 5){
-        this.beverage.push(new Beverage(this.canvas, false, "red", 10));
-      } else if (Math.random() > 0.995){
-        this.beverage.push(new Beverage(this.canvas, true, "brown", 10));
-      };
-    }
-      this.beverage = this.beverage.filter(function(oneBeverage){
-        oneBeverage.moveForward();
-        return oneBeverage.isInsideScreen();
+      var newBeverage = new Beverage(this.canvas, true, "brown", 10);
+      this.beverage.forEach(function(drink){
+        if (drink.y === newBeverage.y && drink.x < newBeverage.x + newBeverage.width + 50){
+          pushDrink = false;
+        }
       });
+      if (pushDrink === true){
+        this.beverage.push(newBeverage);
+      }
+      
+    } else if (Math.random() > 0.98){
+      var newBeverage = new Beverage(this.canvas, false, "red", 10);
+      this.beverage.forEach(function(drink){
+        if (drink.y === newBeverage.y && drink.x < newBeverage.x + newBeverage.width + 50){
+          pushDrink = false;
+        }
+      });
+      if (pushDrink === true){
+        this.beverage.push(newBeverage);
+      }
+    };
+
+    this.beverage = this.beverage.filter(function(oneBeverage){
+      oneBeverage.moveForward();
+      return oneBeverage.isInsideScreen();
+    });
 
     // b. Check if the beverages are off screen (check all of the beverages)
       this.checkScreenCollision();
@@ -71,15 +87,15 @@ function Game(){
     // c. Move beverages
      // this.moveForward();
 
-    // UDATE CANVAS
-    //  a. draw beverages
+    // UDATE CANVAS - draw beverages
       this.beverage.forEach(function(beverage){
         beverage.draw();
       });
 
       this.ctx.fillStyle = "black";
-      this.ctx.fillRect(this.bialetti, this.canvas.height -20, 200, 100);
-    // d. Check if counter down to zero:
+      this.ctx.fillRect(this.bialetti, this.canvas.height -100, 200, 100);
+      
+    // Check if counter down to zero:
        this.checkIfGameOver();  
        this.checkTime();
        this.printTime();
@@ -98,20 +114,21 @@ function Game(){
     };
   
   Game.prototype.checkScreenCollision = function(){
-    this.beverage.forEach(function(beverage){
-        if (this.beverage.isInsideScreen > this.canvas.width){
-        this.count--;
+    this.beverage.forEach(function(beverageCollide){
+        if (beverageCollide.x === 1 && beverageCollide.isCoffee === true){
+        this.score--;
       }
     }, this);
   };
 
   Game.prototype.checkCoffeeClicked = function(){
-      this.beverage = this.beverage.filter(function(oneBeverage){
-        return oneBeverage.x > this.bialetti - oneBeverage.width || oneBeverage.x < this.bialetti + oneBeverage.width;
+      var beverageToClick = this.beverage.filter(function(oneBeverage){
+        return oneBeverage.x > (this.bialetti - oneBeverage.width / 2)
+         && oneBeverage.x < (this.bialetti + 200 + oneBeverage.width / 2);
       }, this);
-
-      if(this.beverage.length > 0) {
-        if (this.beverage[0].isCoffee === true) {
+      console.log("Array", beverageToClick);
+      if(beverageToClick.length > 0) {
+        if (beverageToClick[0].isCoffee === true) {
           this.score ++;
         } else {
             this.score--;
