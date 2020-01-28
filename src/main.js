@@ -71,7 +71,7 @@ function main(){
         <main>
             <h1>Game over</h1>
             <p>You scored <span>${score}</span> cups of Best Coffee!! Would you like to play again?</p>
-            <button id="restart-button">Restart</button>
+            <button id="restart-button">Play another game</button>
         </main>
         `); 
 

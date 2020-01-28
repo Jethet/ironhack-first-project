@@ -56,32 +56,13 @@ function Game(){
     this.ctx.drawImage(this.backImg, 0, 0);
 
     // Create beverages randomly  
-    var pushDrink = true;
+    
     if (Math.random() > 0.99) {
-      this.beverage.draw();
-    }
-    //   var newBeverage = new Beverage(this.canvas, true, "brown", 10);
-    //   this.beverage.forEach(function(drink){
-    //     if (drink.y === newBeverage.y && drink.x < newBeverage.x + newBeverage.width + 50){
-    //       pushDrink = false;
-    //     }
-    //   });
-    //   if (pushDrink === true){
-    //     this.beverage.push(newBeverage);
-    //   }
-      
-      else if (Math.random() > 0.98){
-        this.beverage.draw();
-      
-    //   var newBeverage = new Beverage(this.canvas, false, "red", 10);
-    //   this.beverage.forEach(function(drink){
-    //     if (drink.y === newBeverage.y && drink.x < newBeverage.x + newBeverage.width + 50){
-    //       pushDrink = false;
-    //     }
-    //   });
-    //   if (pushDrink === true){
-    //     this.beverage.push(newBeverage);
-    //   }
+      this.createBeverage(true, "images/coffee_cup.png");
+    } 
+      else if (Math.random() > 0.97){
+      this.createBeverage(false, "images/coffee_bean.png");
+     
     };
 
     this.beverage = this.beverage.filter(function(oneBeverage){
@@ -121,7 +102,20 @@ function Game(){
       window.requestAnimationFrame(loop);
     };
 
-
+    
+  Game.prototype.createBeverage = function(isCoffee, imagesrc){
+    var pushDrink = true;
+    var newBeverage = new Beverage(this.canvas, isCoffee, imagesrc, 10);
+      this.beverage.forEach(function(drink){
+        if (drink.y === newBeverage.y && drink.x < newBeverage.x + newBeverage.width + 50){
+          pushDrink = false;
+        }
+      });
+      if (pushDrink === true){
+        this.beverage.push(newBeverage);
+    }
+  };
+  
   
   Game.prototype.checkScreenCollision = function(){
     this.beverage.forEach(function(beverageCollide){
