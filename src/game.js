@@ -59,7 +59,7 @@ function Game(){
 
     // Create beverages randomly  
     
-    if (Math.random() > 0.98) {
+    if (Math.random() > 0.92) {
       this.createBeverage(true, "images/coffee-cup.png");
     } 
       else if (Math.random() > 0.99){
@@ -71,7 +71,7 @@ function Game(){
     else if (Math.random() > 0.96){
       this.createBeverage(false, "images/caribbean.png");
     }
-    else if (Math.random() > 0.95){
+    else if (Math.random() > 0.97){
       this.createBeverage(false, "images/juice.png");
     }
     else if (Math.random() > 0.94){
@@ -80,7 +80,7 @@ function Game(){
     else if (Math.random() > 0.93){
       this.createBeverage(false, "images/lemonade.png");
     }
-    else if (Math.random() > 0.92){
+    else if (Math.random() > 0.97){
       this.createBeverage(false, "images/wine.png");
     }
     else if (Math.random() > 0.91){
