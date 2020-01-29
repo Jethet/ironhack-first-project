@@ -50,7 +50,7 @@ html {
   }
 
   main #second {
-    max-height: 370px;
+    max-height: auto;
     max-width: 655px;
     background-color: white;
     margin-top: 60px;
@@ -67,7 +67,6 @@ html {
     height: 150px;
     width: 850px;
     margin-top: 40px;
-
   }
   
   /* ---- layout ---- */
@@ -95,9 +94,8 @@ html {
     /* background-image: url('../images/border-4515401_1280.png');*/
     /* background-size: contain; */
     /* background-size: cover; */
-    /* min-height: 1000px; */
-    /* max-width: auto; */
-    border: 2px solid red;
+    /* max-height: 1000px;
+    max-width: auto; */
   }
   
   body .game-over-container {
@@ -122,11 +120,16 @@ html {
       font-size: 60px;
     }
     h2 {
-      font-size: 48px;
+      font-size: 40px;
     }
     #second {
       padding-bottom: 20px;
       font-size: 24px;
+    }
+    p #three {
+      font-size: 40px;
+      display: flex;
+      justify-content: center;
     }
   }
   
@@ -151,7 +154,7 @@ html {
     border: 2px solid black;
     border-radius: 50%;
     color: white;
-    margin-top: 40px;
+    margin-top: 30px;
     font-size: 50px;
     padding: 40px 18px;
     text-decoration: none;
@@ -169,7 +172,7 @@ html {
     border: 2px solid black;
     border-radius: 50%;
     color: white;
-    margin-top: 150px;
+    margin-top: 90px;
     font-size: 50px;
     padding: 40px 18px;
     text-decoration: none;

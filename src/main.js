@@ -23,18 +23,17 @@ function main(){
             <h1 style="text-align:center">Get Your Coffee!</h1>
      
             <h2 id="first" style="text-align:center">A game for the True Coffee Lover</h2>
-         
             <button id="start-button"> Get your coffee!!! </button>
             <div id="second">
-                <p>Click the spacebar when the coffee cup moves under the Bialetti coffee maker and you gain a point. If you click another beverage, you lose a point. You have 60 seconds to play!</p>
-            <div>
+                <p>Click the spacebar when the coffee cup moves under the Bialetti coffee maker and you gain a point. If you click another beverage, you lose a point. You have 60 seconds to play! (and you get 5 points to start with)</p>
+            </div>
             </center>
         </main>`);
 
         document.body.appendChild(splashScreen);
         var startButton = splashScreen.querySelector('button');
         startButton.addEventListener('click', function(){
-            startGame()
+            startGame();
         });
         };
 
