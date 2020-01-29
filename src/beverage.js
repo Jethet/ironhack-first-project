@@ -14,7 +14,6 @@ function Beverage(canvas, isCoffee, imagesrc, speed){
   };
 
   Beverage.prototype.draw = function(){
-   // this.ctx.fillStyle = this.color;
     this.ctx.drawImage(this.image, this.x, this.y, this.width, this.height);
   }
   

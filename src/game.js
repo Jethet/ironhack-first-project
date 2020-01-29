@@ -62,10 +62,37 @@ function Game(){
     if (Math.random() > 0.99) {
       this.createBeverage(true, "images/coffee-cup.png");
     } 
-      else if (Math.random() > 0.97){
+      else if (Math.random() > 0.98){
       this.createBeverage(false, "images/beer-jar.png");
-     
-    };
+    }
+    else if (Math.random() > 0.97){
+      this.createBeverage(false, "images/smoothie.png");
+    }
+    else if (Math.random() > 0.96){
+      this.createBeverage(false, "images/caribbean.png");
+    }
+    else if (Math.random() > 0.95){
+      this.createBeverage(false, "images/juice.png");
+    }
+    else if (Math.random() > 0.94){
+      this.createBeverage(false, "images/beer.png");
+    }
+    else if (Math.random() > 0.93){
+      this.createBeverage(false, "images/lemonade.png");
+    }
+    else if (Math.random() > 0.92){
+      this.createBeverage(false, "images/wine.png");
+    }
+    else if (Math.random() > 0.91){
+      this.createBeverage(false, "images/soft-drink.png");
+    }
+    else if (Math.random() > 0.90){
+      this.createBeverage(false, "images/cocktail.png");
+    }
+    else if (Math.random() > 0.89){
+      this.createBeverage(false, "images/bottle.png");
+    }
+
 //Add less than zero figure for creation time
     this.beverage = this.beverage.filter(function(oneBeverage){
       oneBeverage.moveForward();
@@ -115,8 +142,13 @@ function Game(){
         }
       });
       if (pushDrink === true){
-        this.beverage.push(newBeverage);
-    }
+    //     function calculateAspectRatioFit(srcWidth, srcHeight, maxWidth, maxHeight) {
+    //       var ratio = Math.min(maxWidth / srcWidth, maxHeight / srcHeight);
+    //       return { width: srcWidth*ratio, height: srcHeight*ratio };
+    // }
+    //calculateAspectRatioFit(newBeverage);
+          this.beverage.push(newBeverage);
+      }
   };
   
   
