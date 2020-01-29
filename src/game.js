@@ -59,10 +59,10 @@ function Game(){
 
     // Create beverages randomly  
     
-    if (Math.random() > 0.99) {
+    if (Math.random() > 0.98) {
       this.createBeverage(true, "images/coffee-cup.png");
     } 
-      else if (Math.random() > 0.98){
+      else if (Math.random() > 0.99){
       this.createBeverage(false, "images/beer-jar.png");
     }
     else if (Math.random() > 0.97){
@@ -135,7 +135,7 @@ function Game(){
     
   Game.prototype.createBeverage = function(isCoffee, imagesrc){
     var pushDrink = true;
-    var newBeverage = new Beverage(this.canvas, isCoffee, imagesrc, 20);
+    var newBeverage = new Beverage(this.canvas, isCoffee, imagesrc, 40);
       this.beverage.forEach(function(drink){
         if (drink.y === newBeverage.y && drink.x < newBeverage.x + newBeverage.width + 50){
           pushDrink = false;
