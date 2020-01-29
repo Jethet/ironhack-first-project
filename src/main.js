@@ -18,12 +18,17 @@ function main(){
     function createSplashScreen(){
         splashScreen = buildDom(`
         <main class="splash-screen-container">
-        <br>
-        <h1 style="text-align:center">Get Your Coffee!</h1>
-        <h2 style="text-align:center">A game for the True Coffee Lover</h2>
-        <center>
-        <button id="start-button">Get your coffee!!!</button>
-        </center>
+            <center>
+            <br>
+            <h1 style="text-align:center">Get Your Coffee!</h1>
+     
+            <h2 id="first" style="text-align:center">A game for the True Coffee Lover</h2>
+         
+            <button id="start-button"> Get your coffee!!! </button>
+            <div id="second">
+                <p>Click the spacebar when the coffee cup moves under the Bialetti coffee maker and you gain a point. If you click another beverage, you lose a point. You have 60 seconds to play!</p>
+            <div>
+            </center>
         </main>`);
 
         document.body.appendChild(splashScreen);
@@ -73,13 +78,15 @@ function main(){
         gameOverScreen = buildDom(`
         <main class="game-over-container">
             <br>
-            <h1>Game over</h1>
-            <p id="one">You scored <span>${score}</span> cups of Best Coffee!!</p>
-            <br>
-            <p id="two">Would you like to play again?</p>
-            <div>
-            <button id="restart-button">Play another game</button>
+            <center>
+            <h1 id="game-over">Game over</h1>
+            <div id="three">
+            <p id="text-game-over">You scored <span>${score}</span> cups of Best Coffee!! Would you like to play again?</p>
             </div>
+            <div>
+            <button id="restart-button"> Click to play again! </button>
+            </div>
+            </center>
         </main>
         `); 
 

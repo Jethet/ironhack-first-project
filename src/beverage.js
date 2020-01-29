@@ -3,11 +3,11 @@
 function Beverage(canvas, isCoffee, imagesrc, speed){
     this.canvas = canvas;
     this.ctx = this.canvas.getContext("2d");
-    this.width = 100;
-    this.height = 100;
+    this.width = 200;
+    this.height = 200;
     this.speed = speed;
     this.x = this.canvas.width + this.width;
-    this.y = 300;
+    this.y = 350;
     this.isCoffee = isCoffee;
     this.image = new Image();
     this.image.src = imagesrc;

@@ -15,6 +15,8 @@ function Game(){
 
     this.backImg = new Image();
     this.backImg.src = 'images/border-4515401_1280.png';
+    this.bialettiImage = new Image();
+    this.bialettiImage.src = 'images/coffee-percolator.png'
   };
   
   Game.prototype.start = function(){
@@ -53,7 +55,7 @@ function Game(){
 
     // UPDATE THE STATE (game, beverages)
     //background
-    this.ctx.drawImage(this.backImg, 0, 0);
+    this.ctx.drawImage(this.backImg, 0, 0, this.canvas.width, this.canvas.height);
 
     // Create beverages randomly  
     
@@ -64,7 +66,7 @@ function Game(){
       this.createBeverage(false, "images/beer-jar.png");
      
     };
-
+//Add less than zero figure for creation time
     this.beverage = this.beverage.filter(function(oneBeverage){
       oneBeverage.moveForward();
       return oneBeverage.isInsideScreen();
@@ -81,8 +83,7 @@ function Game(){
         beverage.draw();
       });
 
-      this.ctx.fillStyle = "black";
-      this.ctx.fillRect(this.bialetti, this.canvas.height -100, 200, 100);
+      this.ctx.drawImage(this.bialettiImage, this.bialetti, 40, 272, 300);
 
       //this.ctx.drawImage('images/coffee-percolator.png', this.bialetti, 25, 21)
 
