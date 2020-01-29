@@ -122,7 +122,11 @@ html {
     h2 {
       font-size: 40px;
     }
+<<<<<<< HEAD
     p #second {
+=======
+    #second {
+>>>>>>> master
       padding-bottom: 20px;
       font-size: 24px;
     }

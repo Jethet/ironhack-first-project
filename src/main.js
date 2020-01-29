@@ -18,15 +18,22 @@ function main(){
     function createSplashScreen(){
         splashScreen = buildDom(`
         <main class="splash-screen-container">
-            <h1>Get Your Coffee!</h1>
-            <h2>A game for the True Coffee Lover</h2>
-            <button id="start-button">Get your coffee!!!</button>
+            <center>
+            <br>
+            <h1 style="text-align:center">Get Your Coffee!</h1>
+     
+            <h2 id="first" style="text-align:center">A game for the True Coffee Lover</h2>
+            <button id="start-button"> Get your coffee!!! </button>
+            <div id="second">
+                <p>Click the spacebar when the coffee cup moves under the Bialetti coffee maker and you gain a point. If you click another beverage, you lose a point. You have 60 seconds to play! (and you get 5 points to start with)</p>
+            </div>
+            </center>
         </main>`);
 
         document.body.appendChild(splashScreen);
         var startButton = splashScreen.querySelector('button');
         startButton.addEventListener('click', function(){
-            startGame()
+            startGame();
         });
         };
 
@@ -38,7 +45,7 @@ function main(){
 
     function createGameScreen(){
         var gameScreen = buildDom(`
-        <body class="body-background">
+        <body>
         <main class="game-container">
         <header>
             <div class="time">
@@ -68,10 +75,17 @@ function main(){
 
     function createGameOverScreen(score){
         gameOverScreen = buildDom(`
-        <main>
-            <h1>Game over</h1>
-            <p>You scored <span>${score}</span> cups of Best Coffee!! Would you like to play again?</p>
-            <button id="restart-button">Play another game</button>
+        <main class="game-over-container">
+            <br>
+            <center>
+            <h1 id="game-over">Game over</h1>
+            <div id="three">
+            <p id="text-game-over">You scored <span>${score}</span> cups of Best Coffee!! Would you like to play again?</p>
+            </div>
+            <div>
+            <button id="restart-button"> Click to play again! </button>
+            </div>
+            </center>
         </main>
         `); 
 

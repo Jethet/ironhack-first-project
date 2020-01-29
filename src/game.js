@@ -15,6 +15,8 @@ function Game(){
 
     this.backImg = new Image();
     this.backImg.src = 'images/border-4515401_1280.png';
+    this.bialettiImage = new Image();
+    this.bialettiImage.src = 'images/coffee-percolator.png'
   };
   
   Game.prototype.start = function(){
@@ -28,8 +30,8 @@ function Game(){
 
     this.canvas.width = window.innerWidth;
     this.canvas.height = window.innerHeight;
-    this.canvas.style.maxWidth = "800px";
-    this.canvas.style.maxHeight = "600px";
+    //this.canvas.style.maxWidth = "800px";   I HAVE COMMENTED THIS OUT TO GET FULL BACKGROUND ON GAME PAGE
+    //this.canvas.style.maxHeight = "600px";
 
     // this.bialetti = image, coordinates
 
@@ -53,18 +55,45 @@ function Game(){
 
     // UPDATE THE STATE (game, beverages)
     //background
-    this.ctx.drawImage(this.backImg, 0, 0);
+    this.ctx.drawImage(this.backImg, 0, 0, this.canvas.width, this.canvas.height);
 
     // Create beverages randomly  
     
     if (Math.random() > 0.99) {
-      this.createBeverage(true, "images/coffee_cup.png");
+      this.createBeverage(true, "images/coffee-cup.png");
     } 
-      else if (Math.random() > 0.97){
-      this.createBeverage(false, "images/coffee_bean.png");
-     
-    };
+      else if (Math.random() > 0.98){
+      this.createBeverage(false, "images/beer-jar.png");
+    }
+    else if (Math.random() > 0.97){
+      this.createBeverage(false, "images/smoothie.png");
+    }
+    else if (Math.random() > 0.96){
+      this.createBeverage(false, "images/caribbean.png");
+    }
+    else if (Math.random() > 0.95){
+      this.createBeverage(false, "images/juice.png");
+    }
+    else if (Math.random() > 0.94){
+      this.createBeverage(false, "images/beer.png");
+    }
+    else if (Math.random() > 0.93){
+      this.createBeverage(false, "images/lemonade.png");
+    }
+    else if (Math.random() > 0.92){
+      this.createBeverage(false, "images/wine.png");
+    }
+    else if (Math.random() > 0.91){
+      this.createBeverage(false, "images/soft-drink.png");
+    }
+    else if (Math.random() > 0.90){
+      this.createBeverage(false, "images/cocktail.png");
+    }
+    else if (Math.random() > 0.89){
+      this.createBeverage(false, "images/bottle.png");
+    }
 
+//Add less than zero figure for creation time
     this.beverage = this.beverage.filter(function(oneBeverage){
       oneBeverage.moveForward();
       return oneBeverage.isInsideScreen();
@@ -81,8 +110,9 @@ function Game(){
         beverage.draw();
       });
 
-      this.ctx.fillStyle = "black";
-      this.ctx.fillRect(this.bialetti, this.canvas.height -100, 200, 100);
+      this.ctx.drawImage(this.bialettiImage, this.bialetti, 40, 272, 300);
+
+      //this.ctx.drawImage('images/coffee-percolator.png', this.bialetti, 25, 21)
 
     // Check if counter down to zero:
        this.checkIfGameOver();  
@@ -112,8 +142,13 @@ function Game(){
         }
       });
       if (pushDrink === true){
-        this.beverage.push(newBeverage);
-    }
+    //     function calculateAspectRatioFit(srcWidth, srcHeight, maxWidth, maxHeight) {
+    //       var ratio = Math.min(maxWidth / srcWidth, maxHeight / srcHeight);
+    //       return { width: srcWidth*ratio, height: srcHeight*ratio };
+    // }
+    //calculateAspectRatioFit(newBeverage);
+          this.beverage.push(newBeverage);
+      }
   };
   
   
