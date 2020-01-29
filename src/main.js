@@ -25,7 +25,7 @@ function main(){
             <h2 id="first" style="text-align:center">A game for the True Coffee Lover</h2>
             <button id="start-button"> Get your coffee!!! </button>
             <div id="second">
-                <p>Click the spacebar when the coffee cup moves under the Bialetti coffee maker and you gain a point. If you click another beverage, you lose a point. You have 60 seconds to play! (and you get 5 points to start with)</p>
+                <p>Click the spacebar when the coffee cup moves under the Bialetti coffee maker and you gain a point. If you click another beverage, you lose a point. You have 60 seconds to play and you get 5 points to start with.</p>
             </div>
             </center>
         </main>`);
@@ -79,11 +79,12 @@ function main(){
             <br>
             <center>
             <h1 id="game-over">Game over</h1>
+            <br>
             <div id="three">
             <p id="text-game-over">You scored <span>${score}</span> cups of Best Coffee!! Would you like to play again?</p>
             </div>
             <div>
-            <button id="restart-button"> Click to play again! </button>
+            <button id="restart-button">Click to play again</button>
             </div>
             </center>
         </main>
