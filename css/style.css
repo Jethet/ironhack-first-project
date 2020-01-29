@@ -89,14 +89,6 @@ html {
     max-width: auto;
     text-align: center;
   }
-
-  body .game-container {
-    /* background-image: url('../images/border-4515401_1280.png');*/
-    /* background-size: contain; */
-    /* background-size: cover; */
-    /* max-height: 1000px;
-    max-width: auto; */
-  }
   
   body .game-over-container {
     background-image: url('../images/border-4515401_1280.png');
