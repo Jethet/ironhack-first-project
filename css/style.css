@@ -94,6 +94,16 @@ body .splash-screen-container {
   min-height: 1000px;
   max-width: auto;
   text-align: center;
+  display: flex;
+}
+
+body .splash-screen-container div:first-child {
+  width: 15%;
+  margin-top: 25%;
+  margin-left: 5%;
+}
+.splash-bialetti {
+  width: 100%;
 }
 
 body .game-over-container {
@@ -134,7 +144,6 @@ body .game-over-container {
 header {
   background-color:#8B4513;
   color: white;
-  padding: 10px;
   height: 40px;
   display: flex;
   justify-content: center;
@@ -144,12 +153,16 @@ header {
   font-size: 32px;
   margin-right: 50px;
   margin-left: 50px;
+  padding: 10px;
+
 }
 
 .speed {
   font-size: 32px;
   margin-right: 10px;
   margin-left: 50px;
+  padding: 10px;
+
 }
 
 #start-button {
@@ -186,16 +199,17 @@ header {
   color: white;
 }
 
-#plus-button {
+#plus-button, #minus-button {
   background-color: #8B4513;
   border-color: #8B4513;
   color: white;
   font-size: 30px;
   font-weight: bolder;
-  vertical-align: top;  
+  height: 40px;  
 }
 
-#plus-button:hover {
+#plus-button:hover, #minus-button:hover {
   background-color: #D2691E;
   color: white;
+  cursor: pointer;
 }

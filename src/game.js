@@ -7,7 +7,7 @@ function Game(){
     this.time = 0;
     this.loopCount = 0;
     this.score = 5;
-    this.speed = 0;
+    this.speed = 25;
     this.beverage = [];
     this.bialetti = 200;
 
@@ -28,7 +28,6 @@ function Game(){
 
     this.timeElement = this.gameScreen.querySelector(".time .value");
     this.scoreElement = this.gameScreen.querySelector(".score .value");
-    this.speedElement = this.gameScreen.querySelector(".speed") // I ADDED THIS
 
     this.canvas.width = window.innerWidth;
     this.canvas.height = window.innerHeight;
@@ -39,15 +38,7 @@ function Game(){
       }
     }; 
 
-    window.addEventListener("keydown", this.handleKeySpace.bind(this));
-
-    this.handleKeyDown = function(event) {  // I ADDED THIS + EVENTLISTENER BELOW
-      if (event.key === "ArrowUp") {
-        this.increaseGameSpeed();
-      }
-    }; 
-
-    window.addEventListener("keydown", this.handleKeyDown.bind(this));
+    window.addEventListener("keydown", this.handleKeySpace.bind(this)); 
 
     this.startLoop();
   };
@@ -62,7 +53,7 @@ function Game(){
     // UPDATE THE STATE (game, beverages)
     //background
     this.ctx.drawImage(this.backImg, 0, 0, this.canvas.width, this.canvas.height);
-
+   
     // Create beverages randomly  
     
     if (Math.random() > 0.92) {
@@ -139,7 +130,7 @@ function Game(){
     
   Game.prototype.createBeverage = function(isCoffee, imagesrc){
     var pushDrink = true;
-    var newBeverage = new Beverage(this.canvas, isCoffee, imagesrc, 25);
+    var newBeverage = new Beverage(this.canvas, isCoffee, imagesrc, this.speed);
       this.beverage.forEach(function(drink){
         if (drink.y === newBeverage.y && drink.x < newBeverage.x + newBeverage.width + 50){
           pushDrink = false;
@@ -179,10 +170,17 @@ function Game(){
       console.log(this.score);  
   };
 
-  Game.prototype.increaseGameSpeed = function(){   // I ADDED THIS FUNCTION
-    this.newBeverage.speed = this.newBeverage.speed + 10;
-    this.speedElement.innerHTML = this.newBeverage.speed;
+  Game.prototype.increaseGameSpeed = function(){
+      this.speed += 10;
+      this.speedElement = document.body.querySelector(".speed .value");
+      this.speedElement.innerHTML = this.speed;
   };
+
+  Game.prototype.decreaseGameSpeed = function(){
+    this.speed -= 10;
+    this.speedElement = document.body.querySelector(".speed .value");
+    this.speedElement.innerHTML = this.speed;
+};
   
   Game.prototype.updateScore = function(){
     this.scoreElement.innerHTML = this.score;    

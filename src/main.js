@@ -16,6 +16,10 @@ function main(){
     function createSplashScreen(){
         splashScreen = buildDom(`
         <main class="splash-screen-container">
+            <div>
+            <img class="splash-bialetti" src="images/coffee-percolator.png">
+            </div>
+            <div>
             <center>
             <br>
             <h1 style="text-align:center">Get Your Coffee!</h1>
@@ -26,6 +30,8 @@ function main(){
                 <p>Click the spacebar when the coffee cup moves under the Bialetti coffee maker and you gain a point. If you click another beverage, you lose a point. You have 60 seconds to play and you get 5 points to start with.</p>
             </div>
             </center>
+            </div>
+            
         </main>`);
 
         document.body.appendChild(splashScreen);
@@ -56,9 +62,13 @@ function main(){
             </div>
             <div class="speed">
                 <span class="label">Speed</span>
+                <span class="value"></span>
             </div>
             <div>
                 <button id="plus-button">+</button>
+            </div>
+            <div>
+                <button id="minus-button">-</button>
             </div>
         </header>
         <div class="canvas-container">
@@ -67,10 +77,15 @@ function main(){
         </main>
         </body>`);
 
-        // var speedButton = gamescreen.querySelector('speed'); // I ADDED BUTTON
-        // speedButton.addEventListener('click', function(){
-        //     increaseGameSpeed();
-        // });
+        var speedButton = gameScreen.querySelector('#plus-button');
+        speedButton.addEventListener('click', function(){
+            game.increaseGameSpeed();
+        });
+
+        var decreaseSpeedButton = gameScreen.querySelector('#minus-button');
+        decreaseSpeedButton.addEventListener('click', function(){
+            game.decreaseGameSpeed();
+        });
         
         document.body.appendChild(gameScreen);
         return gameScreen;
