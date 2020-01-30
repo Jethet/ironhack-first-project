@@ -15,7 +15,7 @@ function Beverage(canvas, isCoffee, imagesrc, speed){
 
   Beverage.prototype.draw = function(){
     this.ctx.drawImage(this.image, this.x, this.y, this.width, this.height);
-  }
+  };
   
   Beverage.prototype.moveForward = function(){
     this.x = this.x - this.speed;
@@ -29,4 +29,4 @@ function Beverage(canvas, isCoffee, imagesrc, speed){
 
   Beverage.prototype.isInsideScreen = function(){
     return this.x + this.width / 2 > 0;
-  }
+  };

@@ -43,9 +43,7 @@ function Game(){
         this.shortBurp.currentTime = 0;
       }
     }; 
-
     window.addEventListener("keydown", this.handleKeySpace.bind(this)); 
-
     this.startLoop();
   };
 
@@ -56,8 +54,7 @@ function Game(){
     // CLEAR CANVAS
     this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
 
-    // UPDATE THE STATE (game, beverages)
-    //background
+    // UPDATE THE STATE create background
     this.ctx.drawImage(this.backImg, 0, 0, this.canvas.width, this.canvas.height);
    
     // Create beverages randomly  
@@ -106,9 +103,6 @@ function Game(){
     // Check if the beverages are off screen (check all of the beverages)
       this.checkScreenCollision();
 
-    // Move beverages
-     // this.moveForward();
-
     // UDATE CANVAS - add sound, draw beverages
       this.slurpSound.play();
 
@@ -132,11 +126,9 @@ function Game(){
                      // Syntax: var loop = function(){}.bind(this);
 
       this.scoreElement.innerHTML = this.score;
-
       window.requestAnimationFrame(loop);
     };
 
-    
   Game.prototype.createBeverage = function(isCoffee, imagesrc){
     var pushDrink = true;
     var newBeverage = new Beverage(this.canvas, isCoffee, imagesrc, this.speed);
@@ -146,11 +138,6 @@ function Game(){
         }
       });
       if (pushDrink === true){
-    //     function calculateAspectRatioFit(srcWidth, srcHeight, maxWidth, maxHeight) {
-    //       var ratio = Math.min(maxWidth / srcWidth, maxHeight / srcHeight);
-    //       return { width: srcWidth*ratio, height: srcHeight*ratio };
-    // }
-    //calculateAspectRatioFit(newBeverage);
           this.beverage.push(newBeverage);
       }
   };

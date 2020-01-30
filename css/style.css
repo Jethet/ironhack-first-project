@@ -1,5 +1,4 @@
 /* ---- CSS reset ---- */
-
 html {
   box-sizing: border-box;
   overflow: hidden;
@@ -12,9 +11,6 @@ body {
   margin: 0;
   padding: 0;
 }
-
-
-/* ---- typography ---- */
 
 body {
   color: #111;
@@ -74,8 +70,6 @@ main #three {
   margin-top: 40px;
   line-height: 300%;
 }
-
-/* ---- layout ---- */
 
 html, body {
   height: 100%;

@@ -4,7 +4,6 @@
 function buildDom(htmlString){
     var div = document.createElement('div');
     div.innerHTML = htmlString;
-
     return div.children[0];
 };
 
@@ -17,21 +16,19 @@ function main(){
         splashScreen = buildDom(`
         <main class="splash-screen-container">
             <div>
-            <img class="splash-bialetti" src="images/coffee-percolator.png">
+                <img class="splash-bialetti" src="images/coffee-percolator.png">
             </div>
             <div>
-            <center>
-            <br>
-            <h1 style="text-align:center">Get Your Coffee!</h1>
-     
-            <h2 id="first" style="text-align:center">A game for the True Coffee Lover</h2>
-            <button id="start-button">Get your coffee!!!</button>
-            <div id="second">
-                <p>Click the spacebar when the coffee cup passes under the Bialetti coffee maker to gain a point. If you click another beverage, you lose a point. You get 5 points to start with. Use + and - buttons to increase or decrease the speed of the beverages. You have 60 seconds to play.</p>
+                <center>
+                <br>
+                <h1 style="text-align:center">Get Your Coffee!</h1>
+                <h2 id="first" style="text-align:center">A game for the True Coffee Lover</h2>
+                <button id="start-button">Get your coffee!!!</button>
+                    <div id="second">
+                        <p>Click the spacebar when the coffee cup passes under the Bialetti coffee maker to gain a point. If you click another beverage, you lose a point. You get 5 points to start with. Use + and - buttons to increase or decrease the speed of the beverages. You have 60 seconds to play.</p>
+                    </div>
+                </center>
             </div>
-            </center>
-            </div>
-            
         </main>`);
 
         document.body.appendChild(splashScreen);
@@ -41,13 +38,11 @@ function main(){
         });
         };
 
-    
     function removeSplashScreen(){
         splashScreen.remove(); 
     };
 
-
-    function createGameScreen(){    // I ADDED class="speed" etc.
+    function createGameScreen(){ 
         var gameScreen = buildDom(`
         <body>
         <main class="game-container">
@@ -91,7 +86,6 @@ function main(){
         return gameScreen;
     };
 
-
     function removeGameScreen(){
         game.gameScreen.remove();
     }
@@ -133,7 +127,6 @@ function main(){
 
         game = new Game();
         game.gameScreen = createGameScreen();
-
         game.start();
 
         game.passGameOverCallback(function(){
@@ -151,5 +144,3 @@ function main(){
 };
 
 window.addEventListener('load', main);
-
-//main();
