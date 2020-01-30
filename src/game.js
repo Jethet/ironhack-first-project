@@ -17,7 +17,10 @@ function Game(){
     this.backImg = new Image();
     this.backImg.src = 'images/border-4515401_1280.png';
     this.bialettiImage = new Image();
-    this.bialettiImage.src = 'images/coffee-percolator.png'
+    this.bialettiImage.src = 'images/coffee-percolator.png';
+
+    this.slurpSound = new Audio('audio/slurpSound.wav');
+    this.shortBurp = new Audio('');
   };
   
   Game.prototype.start = function(){
@@ -35,6 +38,8 @@ function Game(){
     this.handleKeySpace = function(event) {
       if (event.keyCode === 32) {
         this.checkCoffeeClicked();
+        // this.slurpSound.play();
+        // this.slurpSound.currentTime = 0;
       }
     }; 
 
@@ -55,7 +60,6 @@ function Game(){
     this.ctx.drawImage(this.backImg, 0, 0, this.canvas.width, this.canvas.height);
    
     // Create beverages randomly  
-    
     if (Math.random() > 0.92) {
       this.createBeverage(true, "images/coffee-cup.png");
     } 
@@ -102,7 +106,9 @@ function Game(){
     // Move beverages
      // this.moveForward();
 
-    // UDATE CANVAS - draw beverages
+    // UDATE CANVAS - add sound, draw beverages
+      this.slurpSound.play();
+
       this.beverage.forEach(function(beverage){
         beverage.draw();
       });
