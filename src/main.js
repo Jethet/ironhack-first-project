@@ -21,7 +21,7 @@ function main(){
             <h1 style="text-align:center">Get Your Coffee!</h1>
      
             <h2 id="first" style="text-align:center">A game for the True Coffee Lover</h2>
-            <button id="start-button"> Get your coffee!!! </button>
+            <button id="start-button">Get your coffee!!!</button>
             <div id="second">
                 <p>Click the spacebar when the coffee cup moves under the Bialetti coffee maker and you gain a point. If you click another beverage, you lose a point. You have 60 seconds to play and you get 5 points to start with.</p>
             </div>
@@ -47,16 +47,18 @@ function main(){
         <main class="game-container">
         <header>
             <div class="time">
-            <span class="label">Your time:</span>
-            <span class="value"></span>
+                <span class="label">Your time:</span>
+                <span class="value"></span>
             </div>
             <div class="score">
-            <span class="label">Your score:</span>
-            <span class="value"></span>
+                <span class="label">Your score:</span>
+                <span class="value"></span>
             </div>
             <div class="speed">
-            <span class="label">Increase speed</span>
-            <span class="value"></span>
+                <span class="label">Speed</span>
+            </div>
+            <div>
+                <button id="plus-button">+</button>
             </div>
         </header>
         <div class="canvas-container">
@@ -65,20 +67,19 @@ function main(){
         </main>
         </body>`);
 
-        var speedButton = gamescreen.querySelector('button'); // I ADDED BUTTON
-        speedButton.addEventListener('click', function(){
-            increaseGameSpeed();
-        });
-        };
+        // var speedButton = gamescreen.querySelector('speed'); // I ADDED BUTTON
+        // speedButton.addEventListener('click', function(){
+        //     increaseGameSpeed();
+        // });
+        
         document.body.appendChild(gameScreen);
         return gameScreen;
-
+    };
 
 
     function removeGameScreen(){
         game.gameScreen.remove();
     }
-
 
     function createGameOverScreen(score){
         gameOverScreen = buildDom(`

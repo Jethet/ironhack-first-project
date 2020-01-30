@@ -138,13 +138,18 @@ header {
   height: 40px;
   display: flex;
   justify-content: center;
-
 }
 
 .time, .score {
   font-size: 32px;
-  margin-right: 100px;
+  margin-right: 50px;
+  margin-left: 50px;
+}
 
+.speed {
+  font-size: 32px;
+  margin-right: 10px;
+  margin-left: 50px;
 }
 
 #start-button {
@@ -164,7 +169,6 @@ header {
   color: white;
 }
 
-
 #restart-button {
   background-color:#8B4513;
   border: 2px solid black;
@@ -178,6 +182,20 @@ header {
 }
 
 #restart-button:hover {
+  background-color: #D2691E;
+  color: white;
+}
+
+#plus-button {
+  background-color: #8B4513;
+  border-color: #8B4513;
+  color: white;
+  font-size: 30px;
+  font-weight: bolder;
+  vertical-align: top;  
+}
+
+#plus-button:hover {
   background-color: #D2691E;
   color: white;
 }
