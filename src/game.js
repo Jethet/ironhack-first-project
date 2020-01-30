@@ -7,6 +7,7 @@ function Game(){
     this.time = 0;
     this.loopCount = 0;
     this.score = 5;
+    this.speed = 1;   // I ADDED THIS
     this.beverage = [];
     this.bialetti = 200;
 
@@ -27,13 +28,10 @@ function Game(){
 
     this.timeElement = this.gameScreen.querySelector(".time .value");
     this.scoreElement = this.gameScreen.querySelector(".score .value");
+    this.speedElement = this.gameScreen.querySelector(".speed .value") // I ADDED THIS
 
     this.canvas.width = window.innerWidth;
     this.canvas.height = window.innerHeight;
-    //this.canvas.style.maxWidth = "800px";   I HAVE COMMENTED THIS OUT TO GET FULL BACKGROUND ON GAME PAGE
-    //this.canvas.style.maxHeight = "600px";
-
-    // this.bialetti = image, coordinates
 
     this.handleKeySpace = function(event) {
       if (event.keyCode === 32) {
@@ -42,6 +40,14 @@ function Game(){
     }; 
 
     window.addEventListener("keydown", this.handleKeySpace.bind(this));
+
+    this.handleKeyDown = function(event) {  // I ADDED THIS + EVENTLISTENER BELOW
+      if (event.key === "ArrowUp") {
+        this.increaseGameSpeed();
+      }
+    }; 
+
+    window.addEventListener("keydown", this.handleKeyDown.bind(this));
 
     this.startLoop();
   };
@@ -151,7 +157,6 @@ function Game(){
       }
   };
   
-  
   Game.prototype.checkScreenCollision = function(){
     this.beverage.forEach(function(beverageCollide){
         if (beverageCollide.x === 1 && beverageCollide.isCoffee === true){
@@ -176,8 +181,14 @@ function Game(){
       console.log(this.score);  
   };
 
+  Game.prototype.increaseGameSpeed = function(){   // I ADDED THIS FUNCTION
+    this.speedElement.innerHTML = this.speed; 
+
+  };
+  
+
   Game.prototype.updateScore = function(){
-    this.scoreElement.innerHTML = this.score;
+    this.scoreElement.innerHTML = this.score;    
   };
 
   Game.prototype.checkIfGameOver = function(){
@@ -212,7 +223,7 @@ function Game(){
       this.timeElement.innerHTML = this.time;
     };
   };
-  
+
   
   
   

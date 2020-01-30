@@ -1,6 +1,6 @@
 'use strict'
 
-// Create the DOM (not sure what is happening here)
+// Create the DOM
 function buildDom(htmlString){
     var div = document.createElement('div');
     div.innerHTML = htmlString;
@@ -9,8 +9,6 @@ function buildDom(htmlString){
 };
 
 function main(){
-    console.log("This is supposed to be a game");
-
     var game;
     var splashScreen;
     var gameOverScreen;
@@ -43,7 +41,7 @@ function main(){
     };
 
 
-    function createGameScreen(){
+    function createGameScreen(){    // I ADDED class="speed" etc.
         var gameScreen = buildDom(`
         <body>
         <main class="game-container">
@@ -56,6 +54,10 @@ function main(){
             <span class="label">Your score:</span>
             <span class="value"></span>
             </div>
+            <div class="speed">
+            <span class="label">Increase speed</span>
+            <span class="value"></span>
+            </div>
         </header>
         <div class="canvas-container">
             <canvas></canvas>
@@ -63,9 +65,14 @@ function main(){
         </main>
         </body>`);
 
+        var speedButton = gamescreen.querySelector('button'); // I ADDED BUTTON
+        speedButton.addEventListener('click', function(){
+            increaseGameSpeed();
+        });
+        };
         document.body.appendChild(gameScreen);
         return gameScreen;
-    };
+
 
 
     function removeGameScreen(){
