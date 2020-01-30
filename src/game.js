@@ -20,7 +20,8 @@ function Game(){
     this.bialettiImage.src = 'images/coffee-percolator.png';
 
     this.slurpSound = new Audio('audio/slurpSound.wav');
-    this.shortBurp = new Audio('');
+    this.shortBurp = new Audio('audio/shortBurp.wav');
+    this.pourCoffee = new Audio('audio/pourCoffee.wav');
   };
   
   Game.prototype.start = function(){
@@ -38,8 +39,8 @@ function Game(){
     this.handleKeySpace = function(event) {
       if (event.keyCode === 32) {
         this.checkCoffeeClicked();
-        // this.slurpSound.play();
-        // this.slurpSound.currentTime = 0;
+        this.shortBurp.play();
+        this.shortBurp.currentTime = 0;
       }
     }; 
 
@@ -62,6 +63,8 @@ function Game(){
     // Create beverages randomly  
     if (Math.random() > 0.92) {
       this.createBeverage(true, "images/coffee-cup.png");
+      this.pourCoffee.play();
+      this.pourCoffee.currentTime = 0;
     } 
       else if (Math.random() > 0.99){
       this.createBeverage(false, "images/beer-jar.png");
