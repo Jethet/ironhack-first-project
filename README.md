@@ -25,7 +25,8 @@ Optional:
 * save player's results in an overview
 * increase speed to make game more challenging
 
-
+## Link to GitHub Pages for this project
+https://jethet.github.io/ironhack-first-project/
 
 ## Data structure
 #### main.js
