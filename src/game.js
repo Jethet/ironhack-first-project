@@ -63,34 +63,34 @@ function Game(){
       this.pourCoffee.play();
       this.pourCoffee.currentTime = 0;
     } 
-      else if (Math.random() > 0.99){
+      else if (Math.random() > 0.97){
       this.createBeverage(false, "images/beer-jar.png");
     }
     else if (Math.random() > 0.97){
       this.createBeverage(false, "images/smoothie.png");
     }
-    else if (Math.random() > 0.96){
+    else if (Math.random() > 0.95){
       this.createBeverage(false, "images/caribbean.png");
     }
-    else if (Math.random() > 0.97){
+    else if (Math.random() > 0.96){
       this.createBeverage(false, "images/juice.png");
     }
-    else if (Math.random() > 0.94){
+    else if (Math.random() > 0.96){
       this.createBeverage(false, "images/beer.png");
     }
-    else if (Math.random() > 0.93){
+    else if (Math.random() > 0.95){
       this.createBeverage(false, "images/lemonade.png");
     }
     else if (Math.random() > 0.97){
       this.createBeverage(false, "images/wine.png");
     }
-    else if (Math.random() > 0.91){
+    else if (Math.random() > 0.94){
       this.createBeverage(false, "images/soft-drink.png");
     }
-    else if (Math.random() > 0.90){
+    else if (Math.random() > 0.97){
       this.createBeverage(false, "images/cocktail.png");
     }
-    else if (Math.random() > 0.89){
+    else if (Math.random() > 0.96){
       this.createBeverage(false, "images/bottle.png");
     }
 
