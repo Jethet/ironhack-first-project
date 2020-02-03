@@ -1,6 +1,6 @@
 'use strict'
 
-function Game(){
+const Game = () => {
     this.canvas = null;
     this.ctx = null;
 
@@ -48,7 +48,7 @@ function Game(){
   };
 
   Game.prototype.startLoop = function(){
-    var loop = function(){
+    let loop = function(){
       console.log("Game looping");
       
     // CLEAR CANVAS
@@ -63,8 +63,8 @@ function Game(){
       this.pourCoffee.play();
       this.pourCoffee.currentTime = 0;
     } 
-      else if (Math.random() > 0.97){
-      this.createBeverage(false, "images/beer-jar.png");
+    else if (Math.random() > 0.97){
+    this.createBeverage(false, "images/beer-jar.png");
     }
     else if (Math.random() > 0.97){
       this.createBeverage(false, "images/smoothie.png");
@@ -130,8 +130,8 @@ function Game(){
     };
 
   Game.prototype.createBeverage = function(isCoffee, imagesrc){
-    var pushDrink = true;
-    var newBeverage = new Beverage(this.canvas, isCoffee, imagesrc, this.speed);
+    let pushDrink = true;
+    let newBeverage = new Beverage(this.canvas, isCoffee, imagesrc, this.speed);
       this.beverage.forEach(function(drink){
         if (drink.y === newBeverage.y && drink.x < newBeverage.x + newBeverage.width + 50){
           pushDrink = false;
@@ -151,7 +151,7 @@ function Game(){
   };
 
   Game.prototype.checkCoffeeClicked = function(){
-      var beverageToClick = this.beverage.filter(function(oneBeverage){
+      const beverageToClick = this.beverage.filter(function(oneBeverage){
         return oneBeverage.x > (this.bialetti - oneBeverage.width / 2)
          && oneBeverage.x < (this.bialetti + 200 + oneBeverage.width / 2);
       }, this);

@@ -1,18 +1,18 @@
 'use strict'
 
 // Create the DOM
-function buildDom(htmlString){
-    var div = document.createElement('div');
+const buildDom = (htmlString) => {
+    const div = document.createElement('div');
     div.innerHTML = htmlString;
     return div.children[0];
 };
 
-function main(){
-    var game;
-    var splashScreen;
-    var gameOverScreen;
+const main = () => {
+    let game;
+    let splashScreen;
+    let gameOverScreen;
 
-    function createSplashScreen(){
+    const createSplashScreen = () => {
         splashScreen = buildDom(`
         <main class="splash-screen-container">
             <div>
@@ -32,18 +32,18 @@ function main(){
         </main>`);
 
         document.body.appendChild(splashScreen);
-        var startButton = splashScreen.querySelector('button');
+        const startButton = splashScreen.querySelector('button');
         startButton.addEventListener('click', function(){
             startGame();
         });
         };
 
-    function removeSplashScreen(){
+    const removeSplashScreen = () => {
         splashScreen.remove(); 
     };
 
-    function createGameScreen(){ 
-        var gameScreen = buildDom(`
+    const createGameScreen = () => { 
+        const gameScreen = buildDom(`
         <body>
         <main class="game-container">
         <header>
@@ -72,12 +72,12 @@ function main(){
         </main>
         </body>`);
 
-        var speedButton = gameScreen.querySelector('#plus-button');
+        const speedButton = gameScreen.querySelector('#plus-button');
         speedButton.addEventListener('click', function(){
             game.increaseGameSpeed();
         });
 
-        var decreaseSpeedButton = gameScreen.querySelector('#minus-button');
+        const decreaseSpeedButton = gameScreen.querySelector('#minus-button');
         decreaseSpeedButton.addEventListener('click', function(){
             game.decreaseGameSpeed();
         });
@@ -86,11 +86,11 @@ function main(){
         return gameScreen;
     };
 
-    function removeGameScreen(){
+    const removeGameScreen = () => {
         game.gameScreen.remove();
     }
 
-    function createGameOverScreen(score){
+    const createGameOverScreen = (score) => {
         gameOverScreen = buildDom(`
         <main class="game-over-container">
             <br>
@@ -116,21 +116,21 @@ function main(){
         </main>
         `); 
 
-        var button = gameOverScreen.querySelector('button');
+        const button = gameOverScreen.querySelector('button');
         button.addEventListener('click', startGame);
-        var span = gameOverScreen.querySelector('span');
+        const span = gameOverScreen.querySelector('span');
         span.innerText = score;
 
         document.body.appendChild(gameOverScreen);
     };
 
-    function removeGameOverScreen(){
+    const removeGameOverScreen = () => {
         if (gameOverScreen !== undefined){
             gameOverScreen.remove();
         }
     }
 
-    function startGame(){
+    const startGame = () => {
         removeSplashScreen();
         removeGameOverScreen();
 
@@ -143,7 +143,7 @@ function main(){
         });  // I do not understand this
     }
 
-    function gameOver(score){
+    const gameOver = (score) => {
         removeGameScreen();
         createGameOverScreen(score);
     };
