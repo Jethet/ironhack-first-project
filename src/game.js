@@ -1,6 +1,7 @@
 'use strict'
 
-const Game = () => {
+class Game {
+  constructor() {
     this.canvas = null;
     this.ctx = null;
 
@@ -23,8 +24,8 @@ const Game = () => {
     this.shortBurp = new Audio('audio/shortBurp.wav');
     this.pourCoffee = new Audio('audio/pourCoffee.wav');
   };
-  
-  Game.prototype.start = function(){
+
+    start() {
     // Get the canvas element, create ctx, save canvas and ctx in the game object
     this.canvasContainer = document.querySelector(".canvas-container");
     this.canvas = document.querySelector("canvas");
@@ -47,8 +48,8 @@ const Game = () => {
     this.startLoop();
   };
 
-  Game.prototype.startLoop = function(){
-    let loop = function(){
+  startLoop() {
+    let loop = () => {
       console.log("Game looping");
       
     // CLEAR CANVAS
@@ -121,7 +122,7 @@ const Game = () => {
         window.requestAnimationFrame(loop);
         }
         this.updateScore();
-      }.bind(this);  // The 'window' object invokes the loop, that is why 'this' is used
+      };  // The 'window' object invokes the loop, that is why 'this' is used
                      // to bind the function: to point to 'game' object
                      // Syntax: var loop = function(){}.bind(this);
 
@@ -129,7 +130,7 @@ const Game = () => {
       window.requestAnimationFrame(loop);
     };
 
-  Game.prototype.createBeverage = function(isCoffee, imagesrc){
+  createBeverage(isCoffee, imagesrc) {
     let pushDrink = true;
     let newBeverage = new Beverage(this.canvas, isCoffee, imagesrc, this.speed);
       this.beverage.forEach(function(drink){
@@ -142,7 +143,7 @@ const Game = () => {
       }
   };
   
-  Game.prototype.checkScreenCollision = function(){
+  checkScreenCollision() {
     this.beverage.forEach(function(beverageCollide){
         if (beverageCollide.x === 1 && beverageCollide.isCoffee === true){
           this.score--;
@@ -150,7 +151,7 @@ const Game = () => {
     }, this);
   };
 
-  Game.prototype.checkCoffeeClicked = function(){
+  checkCoffeeClicked() {
       const beverageToClick = this.beverage.filter(function(oneBeverage){
         return oneBeverage.x > (this.bialetti - oneBeverage.width / 2)
          && oneBeverage.x < (this.bialetti + 200 + oneBeverage.width / 2);
@@ -166,54 +167,57 @@ const Game = () => {
       console.log(this.score);  
   };
 
-  Game.prototype.increaseGameSpeed = function(){
+  increaseGameSpeed() {
       this.speed += 10;
       this.speedElement = document.body.querySelector(".speed .value");
       this.speedElement.innerHTML = this.speed;
   };
 
-  Game.prototype.decreaseGameSpeed = function(){
+  decreaseGameSpeed() {
     this.speed -= 10;
     this.speedElement = document.body.querySelector(".speed .value");
     this.speedElement.innerHTML = this.speed;
 };
   
-  Game.prototype.updateScore = function(){
+  updateScore() {
     this.scoreElement.innerHTML = this.score;    
   };
 
-  Game.prototype.checkIfGameOver = function(){
+  checkIfGameOver() {
     if (this.score <= 0){
       this.gameOver();
     };
   };
 
-  Game.prototype.passGameOverCallback = function(gameOver){  // I do not understand this
+  passGameOverCallback(gameOver) {  
     this.onGameOverCallback = gameOver;
   };
 
-  Game.prototype.gameOver = function(){  // I do not understand the callback
+  gameOver(){ 
     this.gameIsOver = true;
     this.onGameOverCallback();
   };
 
-  Game.prototype.removeGameScreen = function(){
+  removeGameScreen() {
     this.gameScreen.remove();
   };
   
-  Game.prototype.checkTime = function(){
+  checkTime() {
     if (this.time === 60){
       this.gameOver();
     };
   };
 
-  Game.prototype.printTime = function(){
+  printTime() {
     this.loopCount++;
     if (this.loopCount % 60 === 0) {
       this.time = Math.floor(this.loopCount / 60);
       this.timeElement.innerHTML = this.time;
     };
   };
+};
+  
+  
 
   
   

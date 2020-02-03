@@ -1,6 +1,7 @@
 'use strict'
 
-function Beverage(canvas, isCoffee, imagesrc, speed){
+class Beverage{
+  constructor(canvas, isCoffee, imagesrc, speed){
     this.canvas = canvas;
     this.ctx = this.canvas.getContext("2d");
     this.width = 200;
@@ -13,20 +14,21 @@ function Beverage(canvas, isCoffee, imagesrc, speed){
     this.image.src = imagesrc;
   };
 
-  Beverage.prototype.draw = function(){
+  draw() {
     this.ctx.drawImage(this.image, this.x, this.y, this.width, this.height);
   };
   
-  Beverage.prototype.moveForward = function(){
+  moveForward() {
     this.x = this.x - this.speed;
   };
 
-  Beverage.prototype.checkIfCoffee = function(){
+  checkIfCoffee() {
     if (this.isCoffee === true){
       return true;
     }
   };
 
-  Beverage.prototype.isInsideScreen = function(){
+  isInsideScreen() {
     return this.x + this.width / 2 > 0;
   };
+};
