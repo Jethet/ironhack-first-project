@@ -37,14 +37,14 @@ class Game {
     this.canvas.width = window.innerWidth;
     this.canvas.height = window.innerHeight;
 
-    this.handleKeySpace = function(event) {
+    this.handleKeySpace = (event) => {
       if (event.keyCode === 32) {
         this.checkCoffeeClicked();
         this.shortBurp.play();
         this.shortBurp.currentTime = 0;
       }
     }; 
-    window.addEventListener("keydown", this.handleKeySpace.bind(this)); 
+    window.addEventListener("keydown", this.handleKeySpace); 
     this.startLoop();
   };
 
@@ -96,10 +96,10 @@ class Game {
     }
 
 //Add less than zero figure for creation time
-    this.beverage = this.beverage.filter(function(oneBeverage){
+    this.beverage = this.beverage.filter = (oneBeverage) => {
       oneBeverage.moveForward();
       return oneBeverage.isInsideScreen();
-    });
+    };
 
     // Check if the beverages are off screen (check all of the beverages)
       this.checkScreenCollision();
@@ -107,9 +107,9 @@ class Game {
     // UDATE CANVAS - add sound, draw beverages
       this.slurpSound.play();
 
-      this.beverage.forEach(function(beverage){
+      this.beverage.forEach = (beverage) => {
         beverage.draw();
-      });
+      };
 
       this.ctx.drawImage(this.bialettiImage, this.bialetti, 40, 272, 300);
 
@@ -133,29 +133,29 @@ class Game {
   createBeverage(isCoffee, imagesrc) {
     let pushDrink = true;
     let newBeverage = new Beverage(this.canvas, isCoffee, imagesrc, this.speed);
-      this.beverage.forEach(function(drink){
+      this.beverage.forEach = (drink) => {
         if (drink.y === newBeverage.y && drink.x < newBeverage.x + newBeverage.width + 50){
           pushDrink = false;
         }
-      });
+      };
       if (pushDrink === true){
           this.beverage.push(newBeverage);
       }
   };
   
   checkScreenCollision() {
-    this.beverage.forEach(function(beverageCollide){
+    this.beverage.forEach = (beverageCollide) => {
         if (beverageCollide.x === 1 && beverageCollide.isCoffee === true){
           this.score--;
       }
-    }, this);
+    };
   };
 
   checkCoffeeClicked() {
-      const beverageToClick = this.beverage.filter(function(oneBeverage){
+      const beverageToClick = this.beverage.filter = (oneBeverage) => {
         return oneBeverage.x > (this.bialetti - oneBeverage.width / 2)
          && oneBeverage.x < (this.bialetti + 200 + oneBeverage.width / 2);
-      }, this);
+      };
       console.log("Array", beverageToClick);
       if(beverageToClick.length > 0) {
         if (beverageToClick[0].isCoffee === true) {
