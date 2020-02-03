@@ -145,7 +145,7 @@ function Game(){
   Game.prototype.checkScreenCollision = function(){
     this.beverage.forEach(function(beverageCollide){
         if (beverageCollide.x === 1 && beverageCollide.isCoffee === true){
-        this.score--;
+          this.score--;
       }
     }, this);
   };
