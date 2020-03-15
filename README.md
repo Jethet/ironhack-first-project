@@ -33,6 +33,8 @@ Two of the three options that were listed as backlog items have been created and
 The third backlog item remains.
 * save player's results in an overview
 
+Another extra feature could be adding movement to the bialetti coffee maker, and make the game even more difficult.
+
 
 ## Link to GitHub Pages for this project
 https://jethet.github.io/ironhack-first-project/
