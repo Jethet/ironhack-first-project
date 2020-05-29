@@ -1,31 +1,35 @@
-# ironhack-first-project
 # GET YOUR COFFEE
 
 
 ## Description
 
-GET YOUR COFFEE is designed for the true coffee lover who will not accept sub-standard quality like McBrownWater or Starbrew Diluted Stuff. Lemonade and alcohol, or something like tea, are out of the question. The true coffee lover only wants the best: top-quality five-star golden guaranteed high standard coffee!
+GET YOUR COFFEE is a game designed for the true coffee lover who will not accept sub-standard quality like McBrownWater or Starbrew Diluted Stuff. Lemonade and alcohol, or something like tea, are out of the question. The true coffee lover only wants the best: top-quality five-star golden guaranteed high standard coffee, brewed in a Bialetti coffee maker!
 
-GYC challenges the player to carefully watch the line-up of beverages, and immediately press the space bar as soon as the Best Coffee cup moves under the coffee machine. If done correctly, the player earns a cup of coffee. If the player forgets to click when the Best Coffee cup passes under the coffee machine, the coffee cup moves off the screen and the player's score is reduced by one. 
+GYC challenges the player to carefully watch the line-up of beverages, and immediately press the space bar as soon as the Best Coffee cup moves under the coffee maker. If done correctly, the player earns a cup of coffee. If the player forgets to click when the Best Coffee cup passes under the coffee maker, the coffee cup moves off the screen and the player's score is reduced by one. 
 
-If the player gets down to a count of zero coffee cups, the game is over. The speed of the beverage moving across the screen can be increased or decreased. Once the speed is below 0, no beverages will enter the screen anymore.
+If the player gets down to a count of zero coffee cups, the game is over. The speed of the beverage moving across the screen can be increased or decreased. Once the speed is below 0, no beverages will appear on the screen anymore.
 
 The player can play for a maximum time of one minute, and after that the game is over. There are some disgusting sounds to accompany the player's game.
 
 
 ## MVP
-The line-up of beverages are moving from right to left at a certain speed. The type of beverage is randomized.
-
-There is a counter to keep track of the number of coffee cups scored. There is also a counter that keeps track of the time. On the Game Over screen there is an option to play the game again.
+On the home screen, the player sees a short explanation of the game and can click to start.
+The line-up of beverages is moving from right to left at a certain speed.
+The speed can be increased or decreased.
+The type of beverage is randomized.
+There is a counter to keep track of the number of coffee cups scored. 
+There is a counter to keep track of the time. 
+Once the game is over, the Game Over screen shows the player their total score.
+There is an option to play the game again.
 
 
 ## Backlog
-Two of the three options that were listed as backlog items have been created and implemented:
+Two of the three options that were originally listed as backlog items have been created and implemented:
 
 * speed-o-meter
   The speed is shown in the header bar, next to the plus (+) button.
 
-* increase speed to make game more challenging
+* increase speed to make game more challenging, or decrease speed when it goes too fast
   The speed of the movement of the beverages can be increased with the plus (+) button and decreased with the minus (-) button.
   
 * Extra functionality: sounds have been added for the movement on the gamescreen and for the space click.  
@@ -33,7 +37,7 @@ Two of the three options that were listed as backlog items have been created and
 The third backlog item remains.
 * save player's results in an overview
 
-Another extra feature could be adding movement to the bialetti coffee maker, and make the game even more difficult.
+Another extra feature could be to add movement to the bialetti coffee maker, to make the game even more difficult.
 
 
 ## Link to GitHub Pages for this project
