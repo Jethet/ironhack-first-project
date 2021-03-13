@@ -3,7 +3,7 @@
 
 ## Description
 
-GET YOUR COFFEE is a game designed for the true coffee lover who will not accept sub-standard quality like McBrownWater or Starbrew Diluted Stuff. Lemonade and alcohol, or something like tea, are out of the question. The true coffee lover only wants the best: top-quality five-star golden guaranteed high standard coffee, brewed in a Bialetti coffee maker!
+GET YOUR COFFEE is a game designed for the true coffee lover who will not accept sub-standard quality like McBrownWater or Starbrew Diluted Stuff. Lemonade and alcohol, or something like tea, are out of the question. The true coffee lover only wants the best: top-quality five-star golden guaranteed high standard coffee, brewed in a Bialetti coffee maker! The game was inspired by the lack of decent coffee during my bootcamp.
 
 GYC challenges the player to carefully watch the line-up of beverages, and immediately press the space bar as soon as the Best Coffee cup moves under the coffee maker. If done correctly, the player earns a cup of coffee. If the player forgets to click when the Best Coffee cup passes under the coffee maker, the coffee cup moves off the screen and the player's score is reduced by one. 
 
@@ -152,4 +152,3 @@ Beverage.prototype.moveForward = function(){
     
     
 
-### [Trello link: click here](https://trello.com/b/ihmt0jKI/ironhack-first-project-get-your-coffee)
